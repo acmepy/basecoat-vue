@@ -1,0 +1,16 @@
+<template>
+  <label :for="id">{{label}}</label>
+  <select :id="id" class="w-full" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)">
+    <option v-for="(opt, i) in options" :key="i" :value="opt.value">{{ opt.text }}</option>
+  </select>
+</template>
+<script setup>
+  defineProps({
+    label:      {type: String, default: ''},
+    id:         {type: String, required: true},
+    options:    {type: Array,default: () => []},
+    modelValue: {type: [String, Number],default: ''}
+  })
+
+  defineEmits(['update:modelValue'])
+</script>
