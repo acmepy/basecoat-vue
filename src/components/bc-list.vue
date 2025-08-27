@@ -22,8 +22,8 @@
       </div>
       <input type="hidden" name="'select-'+x+'-value'" :value="i.after.value">
     </div>
-    <!--input v-if="i.after.type=='checkbox'" type="checkbox" role="switch" class="input" v-model="model" /-->
-    <BcCheckBox v-if="i.after.type=='checkbox'" modelValue="i.after.checked"/>
+    <input v-if="i.after.type=='switch'" type="checkbox" role="switch" class="input" v-model="i.after.checked" />
+    <!--BcCheckBox v-if="i.after.type=='checkbox'" :modelValue="i.after.checked"/-->
 
 
   </li>

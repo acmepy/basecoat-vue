@@ -31,9 +31,9 @@
   ]
 
   const cookies = [
-    {title:'Strictly Necessary', footer:'These cookies are essential in order to use the website and use its features.', after:{type:'checkbox', checked:true}},
-    //{title:'Functional Cookies', footer:'These cookies allow the website to provide personalized functionality.', after:{type:'checkbox', checked:false}},
-    //{title:'Performance Cookies', footer:'These cookies help to improve the performance of the website.', after:{type:'checkbox', checked:false}}
+    {title:'Strictly Necessary', footer:'These cookies are essential in order to use the website and use its features.', after:{type:'switch', checked:true}},
+    {title:'Functional Cookies', footer:'These cookies allow the website to provide personalized functionality.', after:{type:'switch', checked:false}},
+    {title:'Performance Cookies', footer:'These cookies help to improve the performance of the website.', after:{type:'switch', checked:false}}
   ]
 
   const months = [
