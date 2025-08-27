@@ -9,6 +9,33 @@
   import bcList from './bc-list.vue';
   import bcInput from './bc-input.vue';
 
+  const teams = [
+    {img:"../assets/images/avatar-1.png", title:"Sofia Davis", footer:"m@example.com", after:{type:'select', value:"viewer", items:[
+        {value:"viewer", text:"Viewer"},
+        {value:"developer", text:"Developer"},
+        {value:"billing", text:"Billing"},
+        {value:"owner", text:"Owner", selected:true}
+    ]}},
+    {img:"../assets/images/avatar-2.png", title:"Jackson Lee", footer:"p@example.com", after:{type:'select', value:"billing", items:[
+        {value:"viewer", text:"Viewer"},
+        {value:"developer", text:"Developer"},
+        {value:"billing", text:"Billing"},
+        {value:"owner", text:"Owner", selected:true}
+    ]}},
+    {img:"../assets/images/avatar-3.png", title:"Isabella Nguyen", footer:"i@example.com", after:{type:'select', value:"owner", items:[
+        {value:"viewer", text:"Viewer"},
+        {value:"developer", text:"Developer"},
+        {value:"billing", text:"Billing"},
+        {value:"owner", text:"Owner", selected:true}
+    ]}},      
+  ]
+
+  const cookies = [
+    {title:'Strictly Necessary', footer:'These cookies are essential in order to use the website and use its features.', after:{type:'checkbox', checked:true}},
+    //{title:'Functional Cookies', footer:'These cookies allow the website to provide personalized functionality.', after:{type:'checkbox', checked:false}},
+    //{title:'Performance Cookies', footer:'These cookies help to improve the performance of the website.', after:{type:'checkbox', checked:false}}
+  ]
+
   const months = [
     { value: '01', text: 'January' },
     { value: '02', text: 'February' },
@@ -70,11 +97,12 @@
 		  <section class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-8">
 			<div class="flex flex-col gap-4">
         <bcCard title="Team Members" subtitle="Invite your team members to collaborate.">
-          <bcList/>
+          <bcList :items="teams"/>
         </bcCard>
 
 				<bcCard title="Cookie Settings" subtitle="Manage your cookie settings here." classSection="text-sm grid gap-6">
-          <label class="flex items-center justify-between gap-2">
+          <bcList :items="cookies" classTitle="font-medium" classFooter="text-muted-foreground" />
+          <!--label class="flex items-center justify-between gap-2">
             <div class="flex flex-col gap-0.5">
               <div class="font-medium">Strictly Necessary</div>
               <div class="text-muted-foreground">These cookies are essential in order to use the website and use its features.</div>
@@ -94,7 +122,7 @@
               <div class="text-muted-foreground">These cookies help to improve the performance of the website.</div>
             </div>
             <input type="checkbox" role="switch" class="input" />
-				  </label>
+				  </label-->
   				<template #footer>
 	  			  <button type="button" class="btn-outline w-full">Save preferences</button>
           </template>

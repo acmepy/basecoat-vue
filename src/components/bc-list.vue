@@ -1,12 +1,12 @@
 <template>
 <ul class="grid gap-4">
   <li class="flex items-center gap-4" v-for="(i, x) in items">
-    <img :src="i.img" :alt="i.title" class="w-10 h-10 rounded-full" />
+    <img v-if="!!i.img" :src="i.img" :alt="i.title" class="w-10 h-10 rounded-full" />
     <div class="flex flex-col gap-1 mr-auto">
-      <h3 class="text-sm font-medium leading-none">{{ i.title }}</h3>
-      <p class="text-sm text-muted-foreground">{{ i.footer }}</p>
+      <div :class="classTitle">{{ i.title }}</div>
+      <div :class="classFooter">{{ i.footer }}</div>
     </div>
-    <div v-if="i.after.component=='select'" :id="'select-'+x" class="select ">
+    <div v-if="i.after.type=='select'" :id="'select-'+x" class="select ">
       <button type="button" class="btn-outline justify-between font-normal " :id="'select-'+x+'-trigger'" aria-haspopup="listbox" aria-expanded="false" :aria-controls="'select-'+x+'-listbox'">
         <span class="truncate">{{ i.after.items.find(a=>a.value==i.after.value).text }}</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevrons-up-down-icon lucide-chevrons-up-down text-muted-foreground opacity-50 shrink-0"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg>
@@ -22,6 +22,10 @@
       </div>
       <input type="hidden" name="'select-'+x+'-value'" :value="i.after.value">
     </div>
+    <!--input v-if="i.after.type=='checkbox'" type="checkbox" role="switch" class="input" v-model="model" /-->
+    <BcCheckBox v-if="i.after.type=='checkbox'" modelValue="i.after.checked"/>
+
+
   </li>
   <!--li class="flex items-center gap-4">
     <img src="../assets/images/avatar-3.png" alt="Isabella Nguyen" class="w-10 h-10 rounded-full" />
@@ -53,26 +57,12 @@
 </ul>
 </template>
 <script setup>
+import BcCheckBox from './bcCheckBox.vue';
+
   defineProps({
-    items: {type: Array,default: () => [
-      {img:"../assets/images/avatar-1.png", title:"Sofia Davis", footer:"m@example.com", after:{component:'select', value:"viewer", items:[
-          {value:"viewer", text:"Viewer"},
-          {value:"developer", text:"Developer"},
-          {value:"billing", text:"Billing"},
-          {value:"owner", text:"Owner", selected:true}
-      ]}},
-      {img:"../assets/images/avatar-2.png", title:"Jackson Lee", footer:"p@example.com", after:{component:'select', value:"developer", items:[
-          {value:"viewer", text:"Viewer"},
-          {value:"developer", text:"Developer"},
-          {value:"billing", text:"Billing"},
-          {value:"owner", text:"Owner", selected:true}
-      ]}},
-      {img:"../assets/images/avatar-3.png", title:"Isabella Nguyen", footer:"i@example.com", after:{component:'select', value:"owner", items:[
-          {value:"viewer", text:"Viewer"},
-          {value:"developer", text:"Developer"},
-          {value:"billing", text:"Billing"},
-          {value:"owner", text:"Owner", selected:true}
-      ]}},      
-    ]}
+    items: {type: Array,default: () => []},
+    classTitle:{type:String, default:'text-sm font-medium leading-none'},
+    classFooter:{type:String, default:"text-sm text-muted-foreground"},
+    modelValue: { type: Boolean, default: true }
   })
 </script>
