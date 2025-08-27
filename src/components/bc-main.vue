@@ -3,9 +3,11 @@
   import bcSidebarToggle from './bc-sidebar-toggle.vue';
   import bcThemeSelect from './bc-theme-select.vue';
   import bcThemeSwitcher from './bc-theme-switcher.vue';
+  import bcGithub from './bc-github.vue';
   import bcSelect from './bc-select.vue';
   import bcCard from './bc-card.vue';
-import BcList from './bc-list.vue';
+  import bcList from './bc-list.vue';
+  import bcInput from './bc-input.vue';
 
   const months = [
     { value: '01', text: 'January' },
@@ -45,9 +47,7 @@ import BcList from './bc-list.vue';
         <bcSidebarToggle/>
         <bcThemeSelect/>
         <bcThemeSwitcher/>
-			  <a href="https://github.com/hunvreus/basecoat" class="btn-icon size-8" target="_blank" rel="noopener noreferrer" data-tooltip="GitHub repository" data-side="bottom" data-align="end">
-				  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /><path d="M9 18c-4.51 2-5-2-7-2" /></svg>
-			  </a>
+        <bcGithub/>
 			</div>
 		</header>
 
@@ -69,197 +69,86 @@ import BcList from './bc-list.vue';
 
 		  <section class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-8">
 			<div class="flex flex-col gap-4">
-			  <!--div class="card">
-          <header>
-            <h2>Team Members</h2>
-            <p>Invite your team members to collaborate.</p>
-          </header>
-          <section-->
-          <bcCard title="Team Members" subtitle="Invite your team members to collaborate.">
-            <BcList/>
-            <!--ul class="grid gap-4">
-              <li class="flex items-center gap-4">
-                <img src="../assets/images/avatar-1.png" alt="Sofia Davis" class="w-10 h-10 rounded-full" />
-                <div class="flex flex-col gap-1 mr-auto">
-                <h3 class="text-sm font-medium leading-none">Sofia Davis</h3>
-                <p class="text-sm text-muted-foreground">m@example.com</p>
-                </div>
-                <div id="select-231492" class="select ">
-                <button type="button" class="btn-outline justify-between font-normal " id="select-231492-trigger" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-231492-listbox">
-                  <span class="truncate">Owner</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevrons-up-down-icon lucide-chevrons-up-down text-muted-foreground opacity-50 shrink-0"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg>
-                </button>
-                <div id="select-231492-popover" data-popover aria-hidden="true" data-align="end">
-                  <header>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-icon lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-                  <input type="text" value="" placeholder="Search entries..." autocomplete="off" autocorrect="off" spellcheck="false" aria-autocomplete="list" role="combobox" aria-expanded="false" aria-controls="select-231492-listbox" aria-labelledby="select-231492-trigger">
-                  </header>
-                  <div role="listbox" id="select-231492-listbox" aria-orientation="vertical" aria-labelledby="select-231492-trigger">
-                  <div id="select-231492-items-1" role="option" data-value="viewer">Viewer</div>
-                  <div id="select-231492-items-2" role="option" data-value="developer">Developer</div>
-                  <div id="select-231492-items-3" role="option" data-value="billing">Billing</div>
-                  <div id="select-231492-items-4" role="option" data-value="owner" aria-selected="true">Owner</div>
-                  </div>
-                </div>
-                <input type="hidden" name="select-231492-value" value="owner">
-                </div>
-              </li>
-              <li class="flex items-center gap-4">
-                <img src="../assets/images/avatar-2.png" alt="Jackson Lee" class="w-10 h-10 rounded-full" />
-                <div class="flex flex-col gap-1 mr-auto">
-                <h3 class="text-sm font-medium leading-none">Jackson Lee</h3>
-                <p class="text-sm text-muted-foreground">p@example.com</p>
-                </div>
-                <div id="select-740069" class="select">
-                <button type="button" class="btn-outline justify-between font-normal " id="select-740069-trigger" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-740069-listbox">
-                  <span class="truncate">Empty</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevrons-up-down-icon lucide-chevrons-up-down text-muted-foreground opacity-50 shrink-0"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg>
-                </button>
-                <div id="select-740069-popover" data-popover aria-hidden="true" data-align="end">
-                  <header>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-icon lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-                  <input type="text" value="" placeholder="Search entries..." autocomplete="off" autocorrect="off" spellcheck="false" aria-autocomplete="list" role="combobox" aria-expanded="false" aria-controls="select-740069-listbox" aria-labelledby="select-740069-trigger">
-                  </header>
-                
-                  <div role="listbox" id="select-740069-listbox" aria-orientation="vertical" aria-labelledby="select-740069-trigger">
-                  <div id="select-740069-items-1" role="option" data-value="" aria-selected="true">Empty</div>
-                  <div id="select-740069-items-2" role="option" data-value="viewer">Viewer</div>
-                  <div id="select-740069-items-3" role="option" data-value="developer">Developer</div>
-                  <div id="select-740069-items-4" role="option" data-value="billing">Billing</div>
-                  <div id="select-740069-items-5" role="option" data-value="owner">Owner</div>
-                  </div>
-                </div>
-                <input type="hidden" name="select-740069-value" value="">
-                </div>
-              </li>
-              <li class="flex items-center gap-4">
-                <img src="../assets/images/avatar-3.png" alt="Isabella Nguyen" class="w-10 h-10 rounded-full" />
-                <div class="flex flex-col gap-1 mr-auto">
-                <h3 class="text-sm font-medium leading-none">Isabella Nguyen</h3>
-                <p class="text-sm text-muted-foreground">i@example.com</p>
-                </div>
-                
-                <div id="select-439366" class="select ">
-                <button type="button" class="btn-outline justify-between font-normal " id="select-439366-trigger" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-439366-listbox">
-                  <span class="truncate">Viewer</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevrons-up-down-icon lucide-chevrons-up-down text-muted-foreground opacity-50 shrink-0"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg>
-                </button>
-                <div id="select-439366-popover" data-popover aria-hidden="true" data-align="end">
-                
-                  <header>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-icon lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-                  <input type="text" value="" placeholder="Search entries..." autocomplete="off" autocorrect="off" spellcheck="false" aria-autocomplete="list" role="combobox" aria-expanded="false" aria-controls="select-439366-listbox" aria-labelledby="select-439366-trigger">
-                  </header>
-                
-                  <div role="listbox" id="select-439366-listbox" aria-orientation="vertical" aria-labelledby="select-439366-trigger">
-                  <div id="select-439366-items-1" role="option" data-value="viewer" aria-selected="true">Viewer</div>
-                  <div id="select-439366-items-2" role="option" data-value="developer">Developer</div>
-                  <div id="select-439366-items-3" role="option" data-value="billing">Billing</div>
-                  <div id="select-439366-items-4" role="option" data-value="owner">Owner</div>
-                  </div>
-                </div>
-                <input type="hidden" name="select-439366-value" value="viewer">
-                </div>
-                
-              </li>
-            </ul-->
-          </bcCard>
-          <!--/section>
-			  </div-->
+        <bcCard title="Team Members" subtitle="Invite your team members to collaborate.">
+          <bcList/>
+        </bcCard>
 
-			  <div class="card">
-				<header>
-				  <h2>Cookie Settings</h2>
-				  <p>Manage your cookie settings here.</p>
-				</header>
-				<section class="text-sm grid gap-6">
-				  <label class="flex items-center justify-between gap-2">
-					<div class="flex flex-col gap-0.5">
-					  <div class="font-medium">Strictly Necessary</div>
-					  <div class="text-muted-foreground">These cookies are essential in order to use the website and use its features.</div>
-					</div>
-					<input type="checkbox" role="switch" class="input" checked />
+				<bcCard title="Cookie Settings" subtitle="Manage your cookie settings here." classSection="text-sm grid gap-6">
+          <label class="flex items-center justify-between gap-2">
+            <div class="flex flex-col gap-0.5">
+              <div class="font-medium">Strictly Necessary</div>
+              <div class="text-muted-foreground">These cookies are essential in order to use the website and use its features.</div>
+            </div>
+            <input type="checkbox" role="switch" class="input" checked />
 				  </label>
 				  <label class="flex items-center justify-between gap-2">
-					<div class="flex flex-col gap-0.5">
-					  <div class="font-medium">Functional Cookies</div>
-					  <div class="text-muted-foreground">These cookies allow the website to provide personalized functionality.</div>
-					</div>
-					<input type="checkbox" role="switch" class="input" />
+            <div class="flex flex-col gap-0.5">
+              <div class="font-medium">Functional Cookies</div>
+              <div class="text-muted-foreground">These cookies allow the website to provide personalized functionality.</div>
+            </div>
+            <input type="checkbox" role="switch" class="input" />
 				  </label>
 				  <label class="flex items-center justify-between gap-2">
-					<div class="flex flex-col gap-0.5">
-					  <div class="font-medium">Performance Cookies</div>
-					  <div class="text-muted-foreground">These cookies help to improve the performance of the website.</div>
-					</div>
-					<input type="checkbox" role="switch" class="input" />
+            <div class="flex flex-col gap-0.5">
+              <div class="font-medium">Performance Cookies</div>
+              <div class="text-muted-foreground">These cookies help to improve the performance of the website.</div>
+            </div>
+            <input type="checkbox" role="switch" class="input" />
 				  </label>
-				</section>
-				<footer>
-				  <button type="button" class="btn-outline w-full">Save preferences</button>
-				</footer>
-			  </div>
+  				<template #footer>
+	  			  <button type="button" class="btn-outline w-full">Save preferences</button>
+          </template>
+        </bcCard>
 
-			  <!--div class="card">
-          <header>
-            <h2>Payment Method</h2>
-            <p>Add a new payment method to your account.</p>
-          </header>
-          <section-->
           <bcCard title="Payment Method" subtitle="Add a new payment method to your account.">
             <form class="form grid gap-6">
-            <ul class="flex gap-4">
-              <li class="flex-1">
-              <input type="radio" name="payment-method-type" id="payment-method-type-apple" class="hidden peer" />
-              <label for="payment-method-type-apple" class="text-sm font-medium leading-none flex flex-col items-center justify-between rounded-md border-2 border-muted p-4 hover:bg-muted peer-checked:border-primary [&>svg]:mb-3 [&>svg]:size-6">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2" /><line x1="2" x2="22" y1="10" y2="10" /></svg>
-                Card
-              </label>
-              </li>
-              <li class="flex-1">
-              <input type="radio" name="payment-method-type" id="payment-method-type-card" class="hidden peer" />
-              <label for="payment-method-type-card" class="text-sm font-medium leading-none flex flex-col items-center justify-between rounded-md border-2 border-muted p-4 hover:bg-muted peer-checked:border-primary [&>svg]:mb-3 [&>svg]:size-6">
-                <svg role="img" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>PayPal</title><path d="M7.016 19.198h-4.2a.562.562 0 0 1-.555-.65L5.093.584A.692.692 0 0 1 5.776 0h7.222c3.417 0 5.904 2.488 5.846 5.5-.006.25-.027.5-.066.747A6.794 6.794 0 0 1 12.071 12H8.743a.69.69 0 0 0-.682.583l-.325 2.056-.013.083-.692 4.39-.015.087zM19.79 6.142c-.01.087-.01.175-.023.261a7.76 7.76 0 0 1-7.695 6.598H9.007l-.283 1.795-.013.083-.692 4.39-.134.843-.014.088H6.86l-.497 3.15a.562.562 0 0 0 .555.65h3.612c.34 0 .63-.249.683-.585l.952-6.031a.692.692 0 0 1 .683-.584h2.126a6.793 6.793 0 0 0 6.707-5.752c.306-1.95-.466-3.744-1.89-4.906z"/></svg>
-                Paypal
-              </label>
-              </li>
-              <li class="flex-1">
-              <input type="radio" name="payment-method-type" id="payment-method-type-paypal" class="hidden peer" />
-              <label for="payment-method-type-paypal" class="text-sm font-medium leading-none flex flex-col items-center justify-between rounded-md border-2 border-muted p-4 hover:bg-muted peer-checked:border-primary [&>svg]:mb-3 [&>svg]:size-6">
-                <svg role="img" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Apple</title><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
-                Apple Pay
-              </label>
-              </li>
-            </ul>
-            <div class="grid gap-2">
-              <label for="payment-method-name">Name</label>
-              <input type="text" id="payment-method-name" placeholder="John Doe" />
-            </div>
-            <div class="grid gap-2">
-              <label for="payment-method-city">City</label>
-              <input type="text" id="payment-method-city" placeholder="New York" />
-            </div>
-            <div class="grid gap-2">
-              <label for="payment-method-card-number">Card Number</label>
-              <input type="text" id="payment-method-card-number" placeholder="1234 5678 9012 3456" />
-            </div>
-            <div class="flex gap-4">
-              <div class="grid gap-2 flex-1">
-                <bcSelect label="Expires" id="payment-method-expiration-month" v-model="selectedMonth" :options="months"/>
+              <ul class="flex gap-4">
+                <li class="flex-1">
+                <input type="radio" name="payment-method-type" id="payment-method-type-apple" class="hidden peer" />
+                <label for="payment-method-type-apple" class="text-sm font-medium leading-none flex flex-col items-center justify-between rounded-md border-2 border-muted p-4 hover:bg-muted peer-checked:border-primary [&>svg]:mb-3 [&>svg]:size-6">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2" /><line x1="2" x2="22" y1="10" y2="10" /></svg>
+                  Card
+                </label>
+                </li>
+                <li class="flex-1">
+                <input type="radio" name="payment-method-type" id="payment-method-type-card" class="hidden peer" />
+                <label for="payment-method-type-card" class="text-sm font-medium leading-none flex flex-col items-center justify-between rounded-md border-2 border-muted p-4 hover:bg-muted peer-checked:border-primary [&>svg]:mb-3 [&>svg]:size-6">
+                  <svg role="img" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>PayPal</title><path d="M7.016 19.198h-4.2a.562.562 0 0 1-.555-.65L5.093.584A.692.692 0 0 1 5.776 0h7.222c3.417 0 5.904 2.488 5.846 5.5-.006.25-.027.5-.066.747A6.794 6.794 0 0 1 12.071 12H8.743a.69.69 0 0 0-.682.583l-.325 2.056-.013.083-.692 4.39-.015.087zM19.79 6.142c-.01.087-.01.175-.023.261a7.76 7.76 0 0 1-7.695 6.598H9.007l-.283 1.795-.013.083-.692 4.39-.134.843-.014.088H6.86l-.497 3.15a.562.562 0 0 0 .555.65h3.612c.34 0 .63-.249.683-.585l.952-6.031a.692.692 0 0 1 .683-.584h2.126a6.793 6.793 0 0 0 6.707-5.752c.306-1.95-.466-3.744-1.89-4.906z"/></svg>
+                  Paypal
+                </label>
+                </li>
+                <li class="flex-1">
+                <input type="radio" name="payment-method-type" id="payment-method-type-paypal" class="hidden peer" />
+                <label for="payment-method-type-paypal" class="text-sm font-medium leading-none flex flex-col items-center justify-between rounded-md border-2 border-muted p-4 hover:bg-muted peer-checked:border-primary [&>svg]:mb-3 [&>svg]:size-6">
+                  <svg role="img" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Apple</title><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+                  Apple Pay
+                </label>
+                </li>
+              </ul>
+              <div class="grid gap-2">
+                <bcInput label="Name" type="text" id="payment-method-name" placeholder="John Doe" />
               </div>
-              <div class="grid gap-2 flex-1">
-                <bcSelect label="Year" id="payment-method-expiration-year" v-model="selectedYear" :options="years"/>
+              <div class="grid gap-2">
+                <bcInput label="City" type="text" id="payment-method-city" placeholder="New York" />
               </div>
-              <div class="grid gap-2 flex-1">
-              <label for="payment-method-cvv">CVV</label>
-              <input type="text" id="payment-method-cvv" placeholder="123" maxlength="4" class="w-full" />
+              <div class="grid gap-2">
+                <bcInput label="Card Number" type="text" id="payment-method-card-number" placeholder="1234 5678 9012 3456" />
               </div>
-            </div>
-            <button type="button" class="btn w-full">Continue</button>
+              <div class="flex gap-4">
+                <div class="grid gap-2 flex-1">
+                  <bcSelect label="Expires" id="payment-method-expiration-month" v-model="selectedMonth" :options="months"/>
+                </div>
+                <div class="grid gap-2 flex-1">
+                  <bcSelect label="Year" id="payment-method-expiration-year" v-model="selectedYear" :options="years"/>
+                </div>
+                <div class="grid gap-2 flex-1">
+                <label for="payment-method-cvv">CVV</label>
+                <input type="text" id="payment-method-cvv" placeholder="123" maxlength="4" class="w-full" />
+                </div>
+              </div>
+              <button type="button" class="btn w-full">Continue</button>
             </form>
           </bcCard>
-          <!--/section>
-			  </div-->
 			</div>
 			
 			<div class="flex flex-col gap-4">

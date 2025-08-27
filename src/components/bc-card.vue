@@ -7,6 +7,9 @@
     <section>
       <slot/>
     </section>
+    <footer v-if="$slots.footer">
+      <slot name="footer" />
+    </footer>
   </div>
 </template>
 <script setup>
