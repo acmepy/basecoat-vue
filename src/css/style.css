@@ -1,3 +1,7 @@
 @import "tailwindcss";
 @import "basecoat-css";
-@import "./basecoat-theme.css"
+@import "./basecoat-theme.css";
+
+.material-icons {
+  font-size: inherit; /* ahora sí respeta text-xl, text-2xl, etc */
+}

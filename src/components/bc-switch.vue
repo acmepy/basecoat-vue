@@ -1,8 +1,17 @@
 <template>
-  <input v-if="i.after.type=='checkbox'" type="checkbox" role="switch" class="input" v-model="model" />
+  <input type="checkbox" role="switch" :class="inputClass" :id="inputId" v-model="model" />
 </template>
 <script setup>
-  defineProps({
-    model:{type:Boolean, default:false}
+  import { computed } from 'vue'
+
+  const props = defineProps({
+    inputId:{type:String, default:`input-${Date.now()}`},
+    modelValue:{type:Boolean, default:false}, 
+    inputClass:{type:String, default:'input'}
+  })
+
+  const model = computed({
+    get: () => props.modelValue,
+    set: (val) => emit('update:modelValue', val)
   })
 </script>

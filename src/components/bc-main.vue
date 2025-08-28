@@ -8,6 +8,10 @@
   import bcCard from './bc-card.vue';
   import bcList from './bc-list.vue';
   import bcInput from './bc-input.vue';
+  import bcRadio from './bc-radio.vue';
+  import bcButton from './bc-button.vue';
+import BcDivider from './bc-divider.vue';
+import BcPassword from './bc-password.vue';
 
   const teams = [
     {img:"../assets/images/avatar-1.png", title:"Sofia Davis", footer:"m@example.com", after:{type:'select', value:"viewer", items:[
@@ -101,82 +105,26 @@
         </bcCard>
 
 				<bcCard title="Cookie Settings" subtitle="Manage your cookie settings here." classSection="text-sm grid gap-6">
-          <bcList :items="cookies" classTitle="font-medium" classFooter="text-muted-foreground" />
-          <!--label class="flex items-center justify-between gap-2">
-            <div class="flex flex-col gap-0.5">
-              <div class="font-medium">Strictly Necessary</div>
-              <div class="text-muted-foreground">These cookies are essential in order to use the website and use its features.</div>
-            </div>
-            <input type="checkbox" role="switch" class="input" checked />
-				  </label>
-				  <label class="flex items-center justify-between gap-2">
-            <div class="flex flex-col gap-0.5">
-              <div class="font-medium">Functional Cookies</div>
-              <div class="text-muted-foreground">These cookies allow the website to provide personalized functionality.</div>
-            </div>
-            <input type="checkbox" role="switch" class="input" />
-				  </label>
-				  <label class="flex items-center justify-between gap-2">
-            <div class="flex flex-col gap-0.5">
-              <div class="font-medium">Performance Cookies</div>
-              <div class="text-muted-foreground">These cookies help to improve the performance of the website.</div>
-            </div>
-            <input type="checkbox" role="switch" class="input" />
-				  </label-->
+          <bcList :items="cookies" classTitle="font-medium" classFooter="text-muted-foreground" classLi="flex items-center justify-between gap-2"/>
   				<template #footer>
 	  			  <button type="button" class="btn-outline w-full">Save preferences</button>
           </template>
         </bcCard>
 
-          <bcCard title="Payment Method" subtitle="Add a new payment method to your account.">
-            <form class="form grid gap-6">
-              <ul class="flex gap-4">
-                <li class="flex-1">
-                <input type="radio" name="payment-method-type" id="payment-method-type-apple" class="hidden peer" />
-                <label for="payment-method-type-apple" class="text-sm font-medium leading-none flex flex-col items-center justify-between rounded-md border-2 border-muted p-4 hover:bg-muted peer-checked:border-primary [&>svg]:mb-3 [&>svg]:size-6">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2" /><line x1="2" x2="22" y1="10" y2="10" /></svg>
-                  Card
-                </label>
-                </li>
-                <li class="flex-1">
-                <input type="radio" name="payment-method-type" id="payment-method-type-card" class="hidden peer" />
-                <label for="payment-method-type-card" class="text-sm font-medium leading-none flex flex-col items-center justify-between rounded-md border-2 border-muted p-4 hover:bg-muted peer-checked:border-primary [&>svg]:mb-3 [&>svg]:size-6">
-                  <svg role="img" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>PayPal</title><path d="M7.016 19.198h-4.2a.562.562 0 0 1-.555-.65L5.093.584A.692.692 0 0 1 5.776 0h7.222c3.417 0 5.904 2.488 5.846 5.5-.006.25-.027.5-.066.747A6.794 6.794 0 0 1 12.071 12H8.743a.69.69 0 0 0-.682.583l-.325 2.056-.013.083-.692 4.39-.015.087zM19.79 6.142c-.01.087-.01.175-.023.261a7.76 7.76 0 0 1-7.695 6.598H9.007l-.283 1.795-.013.083-.692 4.39-.134.843-.014.088H6.86l-.497 3.15a.562.562 0 0 0 .555.65h3.612c.34 0 .63-.249.683-.585l.952-6.031a.692.692 0 0 1 .683-.584h2.126a6.793 6.793 0 0 0 6.707-5.752c.306-1.95-.466-3.744-1.89-4.906z"/></svg>
-                  Paypal
-                </label>
-                </li>
-                <li class="flex-1">
-                <input type="radio" name="payment-method-type" id="payment-method-type-paypal" class="hidden peer" />
-                <label for="payment-method-type-paypal" class="text-sm font-medium leading-none flex flex-col items-center justify-between rounded-md border-2 border-muted p-4 hover:bg-muted peer-checked:border-primary [&>svg]:mb-3 [&>svg]:size-6">
-                  <svg role="img" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Apple</title><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
-                  Apple Pay
-                </label>
-                </li>
-              </ul>
-              <div class="grid gap-2">
-                <bcInput label="Name" type="text" id="payment-method-name" placeholder="John Doe" />
-              </div>
-              <div class="grid gap-2">
-                <bcInput label="City" type="text" id="payment-method-city" placeholder="New York" />
-              </div>
-              <div class="grid gap-2">
-                <bcInput label="Card Number" type="text" id="payment-method-card-number" placeholder="1234 5678 9012 3456" />
-              </div>
-              <div class="flex gap-4">
-                <div class="grid gap-2 flex-1">
-                  <bcSelect label="Expires" id="payment-method-expiration-month" v-model="selectedMonth" :options="months"/>
-                </div>
-                <div class="grid gap-2 flex-1">
-                  <bcSelect label="Year" id="payment-method-expiration-year" v-model="selectedYear" :options="years"/>
-                </div>
-                <div class="grid gap-2 flex-1">
-                <label for="payment-method-cvv">CVV</label>
-                <input type="text" id="payment-method-cvv" placeholder="123" maxlength="4" class="w-full" />
-                </div>
-              </div>
-              <button type="button" class="btn w-full">Continue</button>
-            </form>
-          </bcCard>
+        <bcCard title="Payment Method" subtitle="Add a new payment method to your account.">
+          <form class="form grid gap-6">
+            <bcRadio />
+            <bcInput label="Name" type="text" inputId="payment-method-name" placeholder="John Doe" containerClass="grid gap-2"/>
+            <bcInput label="City" type="text" inputId="payment-method-city" placeholder="New York" containerClass="grid gap-2"/>
+            <bcInput label="Card Number" type="text" inputId="payment-method-card-number" placeholder="1234 5678 9012 3456" containerClass="grid gap-2"/>
+            <div class="flex gap-4">
+              <bcSelect label="Expires" id="payment-method-expiration-month" v-model="selectedMonth" :options="months" containerClass="grid gap-2 flex-1"/>
+              <bcSelect label="Year" id="payment-method-expiration-year" v-model="selectedYear" :options="years" containerClass="grid gap-2 flex-1"/>
+              <bcInput label="CVV" type="text" inputId="payment-method-cvv" placeholder="123" containerClass="grid gap-2 flex-1"/>
+            </div>
+            <button type="button" class="btn w-full">Continue</button>
+          </form>
+        </bcCard>
 			</div>
 			
 			<div class="flex flex-col gap-4">
@@ -213,53 +161,32 @@
 				</section>
 			  </div>
 
-			  <div class="card">
-				<header>
-				  <h2>Create an account</h2>
-				  <p>Enter your email below to create your account</p>
-				</header>
-				<section class="grid gap-6">
+        <bcCard title="Create an account" subtitle="Enter your email below to create your account" sectionClass="grid gap-6">
 				  <div class="flex gap-6">
-					<button type="button" class="btn-outline flex-1">
-					  <svg role="img" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-					  GitHub
-					</button>
-					<button type="button" class="btn-outline flex-1">
-					  <svg role="img" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google</title><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg>
-					  Google
-					</button>
+            <bcButton text="GitHub" :svg="{title:'', path:'M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'}" />
+            <bcButton text="Google" :svg="{title:'', path:'M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z'}" />
 				  </div>
-				  <div class="relative">
-					<div class="absolute inset-0 flex items-center">
-					  <span class="w-full border-t"></span>
-					</div>
-					<div class="relative flex justify-center text-xs uppercase">
-					  <span class="bg-card px-2 text-muted-foreground">Or continue with</span>
-					</div>
-				  </div>
+          <BcDivider label="Or continue with"/>
 				  <form class="form grid gap-6">
-					<div class="grid gap-2">
-					  <label for="demo-card-form-email">Email</label>
-					  <input type="email" id="demo-card-form-email">
-					</div>
-					<div class="grid gap-2">
-					  <div class="flex items-center gap-2">
-						<label for="demo-card-form-password">Password</label>
-						<a href="index.html#" class="ml-auto inline-block text-sm underline-offset-4 hover:underline">Forgot your password?</a>
-					  </div>
-					  <input type="password" id="demo-card-form-password">
-					</div>
-					<button type="button" class="btn w-full">Create an account</button>
+            <bcInput label="Email" type="email" inputId="demo-card-form-email"/>
+            <BcPassword label="Password" inputId="demo-card-form-passwordx" resetLabel="Forgot your password?" resetLink="/"/>
+            <bcButton text="Create an account" buttonClass="btn w-full"/>
+            <!--div class="grid gap-2">
+              <label for="demo-card-form-email">Email</label>
+              <input type="email" id="demo-card-form-email">
+            </div-->
+            <!--div class="grid gap-2">
+              <div class="flex items-center gap-2">
+              <label for="demo-card-form-password">Password</label>
+              <a href="index.html#" class="ml-auto inline-block text-sm underline-offset-4 hover:underline">Forgot your password?</a>
+              </div>
+              <input type="password" id="demo-card-form-password">
+            </div-->
+            <!--button type="button" class="btn w-full">Create an account</button-->
 				  </form>
-				</section>
-			  </div>
+        </bcCard>
 
-			  <div class="card">
-				<header>
-				  <h2>Report an issue</h2>
-				  <p>What area are you having problems with?</p>
-				</header>
-				<section>
+        <bcCard title="Report an issue" subtitle="What area are you having problems with?">
 				  <form class="form grid gap-6">
 					<div class="flex gap-4">
 					  <div class="grid gap-2 flex-1">
@@ -295,8 +222,7 @@
 					  <button type="button" class="btn-sm">Continue</button>
 					</footer>
 				  </form>
-				</section>
-			  </div>
+          </bcCard>
 			</div>
 		  </section>
 		</div>

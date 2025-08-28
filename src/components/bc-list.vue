@@ -1,6 +1,6 @@
 <template>
 <ul class="grid gap-4">
-  <li class="flex items-center gap-4" v-for="(i, x) in items">
+  <li :class="classLi" v-for="(i, x) in items">
     <img v-if="!!i.img" :src="i.img" :alt="i.title" class="w-10 h-10 rounded-full" />
     <div class="flex flex-col gap-1 mr-auto">
       <div :class="classTitle">{{ i.title }}</div>
@@ -20,10 +20,12 @@
           <div v-for="(ii, xx) in i.after.items" :id="'select-'+x+'-items-'+xx" role="option" :data-value="ii.value">{{ ii.text }}</div>
         </div>
       </div>
-      <input type="hidden" name="'select-'+x+'-value'" :value="i.after.value">
+      <input type="hidden" name="'select-'+x+'-value'" :modelValue="i.after.value">
     </div>
-    <input v-if="i.after.type=='switch'" type="checkbox" role="switch" class="input" v-model="i.after.checked" />
+    <bcSwitch v-if="i.after.type=='switch'" :modelValue="i.after.checked"/>
+    <!--input v-if="i.after.type=='switch'" type="checkbox" role="switch" class="input" v-model="i.after.checked" /-->
     <!--BcCheckBox v-if="i.after.type=='checkbox'" :modelValue="i.after.checked"/-->
+
 
 
   </li>
@@ -55,14 +57,24 @@
     </div>
   </li-->
 </ul>
+  <!--esto se muestra igualito con ul/li-->
+  <!--label class="flex items-center justify-between gap-2">
+    <div class="flex flex-col gap-0.5">
+      <div class="font-medium">Strictly Necessary</div>
+      <div class="text-muted-foreground">These cookies are essential in order to use the website and use its features.</div>
+    </div>
+    <input type="checkbox" role="switch" class="input" checked />
+  </label-->
+
 </template>
 <script setup>
-import BcCheckBox from './bcCheckBox.vue';
+  import bcSwitch from './bc-switch.vue';
 
   defineProps({
     items: {type: Array,default: () => []},
     classTitle:{type:String, default:'text-sm font-medium leading-none'},
     classFooter:{type:String, default:"text-sm text-muted-foreground"},
+    classLi:{type:String, default:'flex items-center gap-4'},
     modelValue: { type: Boolean, default: true }
   })
 </script>

@@ -9,7 +9,7 @@
 
   const props = defineProps({
     label:{type:String},
-    inputId:{type:String, default:`checkbox-${Date.now()}`},
+    inputId:{type:String, default:`input-${Date.now()}`},
     inputClass:{type:String, default:'input'},
     modelValue: { type: Boolean, default: false }
   })

@@ -4,7 +4,7 @@
       <h2>{{ title }}</h2>
       <p>{{ subtitle }}</p>
     </header>
-    <section>
+    <section :class="sectionClass">
       <slot/>
     </section>
     <footer v-if="$slots.footer">
@@ -15,6 +15,7 @@
 <script setup>
   defineProps({
     title:   {type: String, default: ''},
-    subtitle: {type: String, default: ''}
+    subtitle: {type: String, default: ''},
+    sectionClass:{type:String}
   })
 </script>

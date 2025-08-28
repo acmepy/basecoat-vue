@@ -1,7 +1,10 @@
 <template>
-  <div :class="containerClass">
+  <div class="grid gap-2">
+    <div class="flex items-center gap-2">
     <label v-if="!!label" :for="inputId">{{ label }}</label>
-    <input :type="type" :id="inputId" :placeholder="placeholder" />
+    <a v-if="!!resetLink" :href="reset" class="ml-auto inline-block text-sm underline-offset-4 hover:underline">{{ resetLabel }}</a>
+    </div>
+    <input type="password" id="inputId">
   </div>
 </template>
 <script setup>
@@ -9,6 +12,8 @@
     label:String,
     type:  {type: String, default: 'text'},
 		inputId: {type:String, default: `input-${Date.now()}`},
+    resetLabel:String,
+    resetLink:String,
     placeholder: String,
     containerClass:String
   })
