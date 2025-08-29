@@ -1,6 +1,6 @@
 <template>
-  <button type="button" :class="buttonClass">
-    <bcIcon v-if="!!material||!!fa||!!svg" :material="material" :fa="fa" :svg="svg"/>
+  <button type="button" :class="buttonClass" :data-tooltip="tooltip">
+    <bcIcon v-if="!!material||!!fa||!!svg" :material="material" :fa="fa" :svg="svg" :iconClass="iconClass"/>
     {{text}}
   </button>
 </template>
@@ -12,6 +12,8 @@ import BcIcon from './bc-icon.vue';
     material:{type:String},
     fa:{type:String},
     svg:{type:Object},
-    text:{type:String, default:'GitHub'}
+    text:{type:String},
+    tooltip:String,
+    iconClass:String
   })
 </script>

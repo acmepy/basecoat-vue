@@ -1,10 +1,10 @@
 <template>
 <ul class="grid gap-4">
-  <li :class="classLi" v-for="(i, x) in items">
+  <li :class="liClass" v-for="(i, x) in items">
     <img v-if="!!i.img" :src="i.img" :alt="i.title" class="w-10 h-10 rounded-full" />
-    <div class="flex flex-col gap-1 mr-auto">
-      <div :class="classTitle">{{ i.title }}</div>
-      <div :class="classFooter">{{ i.footer }}</div>
+    <div class="groupClass">
+      <div :class="titleClass">{{ i.title }}</div>
+      <div :class="footerClass">{{ i.footer }}</div>
     </div>
     <div v-if="i.after.type=='select'" :id="'select-'+x" class="select ">
       <button type="button" class="btn-outline justify-between font-normal " :id="'select-'+x+'-trigger'" aria-haspopup="listbox" aria-expanded="false" :aria-controls="'select-'+x+'-listbox'">
@@ -72,9 +72,10 @@
 
   defineProps({
     items: {type: Array,default: () => []},
-    classTitle:{type:String, default:'text-sm font-medium leading-none'},
-    classFooter:{type:String, default:"text-sm text-muted-foreground"},
-    classLi:{type:String, default:'flex items-center gap-4'},
+    titleClass:{type:String, default:'text-sm font-medium leading-none'},
+    footerClass:{type:String, default:"text-sm text-muted-foreground"},
+    liClass:{type:String, default:'flex items-center gap-4'},
+    groupClass:{type:String, default:"flex flex-col gap-1 mr-auto"},
     modelValue: { type: Boolean, default: true }
   })
 </script>

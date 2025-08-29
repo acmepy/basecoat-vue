@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <header>
+    <header v-if="!!title">
       <h2>{{ title }}</h2>
       <p>{{ subtitle }}</p>
     </header>
