@@ -12,7 +12,7 @@
 			<div v-for="m in messages" :class="messagesClass[m.type]">{{m.text}}</div>
 		</section>
 		<footer class="flex items-center gap-2">
-			<input type="text" class="input w-full" placeholder="Type your message here..." v-model="message" @input="(value)=>sendDisabled=!value">
+			<input type="text" class="input w-full" id="input-message" placeholder="Type your message here..." v-model="message" @input="(value)=>sendDisabled=!value">
 			<bcButton material="send" buttonClass="btn-icon" iconClass="rotate-315" iconStyle="font-size:40px; color:gray;"  tooltip="New message" :disabled="sendDisabled"/>
 		</footer>
 	</bcCard>"

@@ -2,32 +2,29 @@
 <ul class="grid gap-4">
   <li :class="liClass" v-for="(i, x) in items">
     <img v-if="!!i.img" :src="i.img" :alt="i.title" class="w-10 h-10 rounded-full" />
-    <div class="groupClass">
+    <div :class="groupClass">
       <div :class="titleClass">{{ i.title }}</div>
       <div :class="footerClass">{{ i.footer }}</div>
     </div>
-    <div v-if="i.after.type=='select'" :id="'select-'+x" class="select ">
+    <div v-if="i.after.type=='select'" :id="'select-'+x" class="select">
       <button type="button" class="btn-outline justify-between font-normal " :id="'select-'+x+'-trigger'" aria-haspopup="listbox" aria-expanded="false" :aria-controls="'select-'+x+'-listbox'">
         <span class="truncate">{{ i.after.items.find(a=>a.value==i.after.value).text }}</span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevrons-up-down-icon lucide-chevrons-up-down text-muted-foreground opacity-50 shrink-0"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg>
+        <BcIcon material="unfold_more" iconStyle="font-size:15px; color:gray;"/>
       </button>
       <div :id="'select-'+x+'-popover'" data-popover aria-hidden="true" data-align="end">
         <header>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-icon lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-          <input type="text" value="" placeholder="Search entries..." autocomplete="off" autocorrect="off" spellcheck="false" aria-autocomplete="list" role="combobox" aria-expanded="false" aria-controls="select-231492-listbox" aria-labelledby="select-231492-trigger">
+          <BcIcon material="search" />
+          <input type="text" value="" placeholder="Search entries..." :id="'input-serch-'+x" autocomplete="off" autocorrect="off" spellcheck="false" aria-autocomplete="list" role="combobox" aria-expanded="false" :aria-controls="'select-'+x+'-listbox'" :aria-labelledby="'select-'+x+'-trigger'">
         </header>
         <div role="listbox" :id="'select-'+x+'-listbox'" aria-orientation="vertical" :aria-labelledby="'select-'+x+'-trigger'">
           <div v-for="(ii, xx) in i.after.items" :id="'select-'+x+'-items-'+xx" role="option" :data-value="ii.value">{{ ii.text }}</div>
         </div>
       </div>
-      <input type="hidden" name="'select-'+x+'-value'" :modelValue="i.after.value">
+      <input type="hidden" name="'select-'+x+'-value'" id="input-hiden" :modelValue="i.after.value">
     </div>
     <bcSwitch v-if="i.after.type=='switch'" :modelValue="i.after.checked"/>
     <!--input v-if="i.after.type=='switch'" type="checkbox" role="switch" class="input" v-model="i.after.checked" /-->
     <!--BcCheckBox v-if="i.after.type=='checkbox'" :modelValue="i.after.checked"/-->
-
-
-
   </li>
   <!--li class="flex items-center gap-4">
     <img src="../assets/images/avatar-3.png" alt="Isabella Nguyen" class="w-10 h-10 rounded-full" />
@@ -68,7 +65,8 @@
 
 </template>
 <script setup>
-  import bcSwitch from './bc-switch.vue';
+  import BcIcon from './bc-icon.vue';
+import bcSwitch from './bc-switch.vue';
 
   defineProps({
     items: {type: Array,default: () => []},

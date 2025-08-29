@@ -6,10 +6,11 @@
 </template>
 <script setup>
   import { computed } from 'vue'
+  import { useUniqueId } from '../js/utils'
 
   const props = defineProps({
     label:{type:String},
-    inputId:{type:String, default:`input-${Date.now()}`},
+    inputId:{type:String, default:()=>useUniqueId()},
     inputClass:{type:String, default:'input'},
     modelValue: { type: Boolean, default: false }
   })

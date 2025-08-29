@@ -8,7 +8,7 @@
   defineProps({
     label:String,
     type:  {type: String, default: 'text'},
-		inputId: {type:String, default: `input-${Date.now()}`},
+		inputId: {type:String, default:`input-${+ Math.floor(Math.random() * 1000)}`},
     placeholder: String,
     containerClass:String
   })
