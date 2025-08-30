@@ -3,11 +3,12 @@
     id:String,
     class:{type:String, default:()=>'sidebar'},
     align:{type:String, default:()=>'left'},
+    header:{type:Object, default:()=>{return {label:"Sidebar navigation", link:'https://basecoatui.com/'}}}
   })
 </script>
 <template>
   <aside :id="id" :class="class" :data-side="align" aria-hidden="false">
-    <nav aria-label="Sidebar navigation">
+    <nav :aria-label="header.label||'Sidebar navigation'">
       <header>
         <a href="https://basecoatui.com/" class="btn-ghost p-2 h-12 w-full justify-start">
           <div class="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
