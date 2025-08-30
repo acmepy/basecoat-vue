@@ -53,20 +53,19 @@ bottomClassAside2
   })
 
   const updToolbar = (asideHidden)=>{
+    asideHidden = asideHidden=="false"?false:true
     const isMobile = window.innerWidth < 768
-    console.log('---->', isMobile, asideHidden)
-    if(props.position==='top'){
-      return
-    }else if(asideHidden){
-      wFull.value  = true
-      left64.value = false
-      right0.value = false
-    }else if(!isMobile && !asideHidden){
-      wFull.value  = false
-      left64.value = true
-      right0.value = true
+    if(props.position==='bottom'){
+      if(isMobile || asideHidden){
+        wFull.value  = true
+        left64.value = false
+        right0.value = false
+      }else{
+        wFull.value  = false
+        left64.value = true
+        right0.value = true
+      }
     }
-    //classx.value = props.position=='top'?topClass:isMobile?bottomClassAside1:bottomClassAside2
   }
 </script>
 

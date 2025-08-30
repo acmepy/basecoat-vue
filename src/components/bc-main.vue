@@ -93,11 +93,11 @@
 <template>
    
   <main id="content">
-    <bcToolbar position="top">
+    <!--bcToolbar position="top">
       <bcButton text="Home" material="home" buttonClass="flex flex-col items-center text-sm text-gray-600" />
       <bcButton text="Buscar" material="search" buttonClass="flex flex-col items-center text-sm text-gray-600" />
       <bcButton text="Perfil" material="person" buttonClass="flex flex-col items-center text-sm text-gray-600" />
-    </bcToolbar>
+    </bcToolbar-->
     <bcToolbar>
       <bcButton text="Home" material="home" buttonClass="flex flex-col items-center text-sm text-gray-600" />
       <bcButton text="Buscar" material="search" buttonClass="flex flex-col items-center text-sm text-gray-600" />
@@ -158,7 +158,7 @@
           </div>
         
           <div class="flex flex-col gap-4">
-            <bcMessages avatar='../assets/images/avatar-1.png' name='Sofia Davis' email='m@example.com' :messages="[
+            <bcMessages avatar='/images/avatar-1.png' name='Sofia Davis' email='m@example.com' :messages="[
         			{type:'received', text:'Hi, how can I help you today?'},
 			        {type:'sent', text:'Hey, I\'m having trouble with my account.'},
 			        {type:'received', text:'What seems to be the problem?'},
