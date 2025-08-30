@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import {ref} from 'vue'
-  import bcAsideToggle from './bc-aside-toggle.vue';
+  import bcSidebarToggle from './bc-sidebar-toggle.vue';
   import bcThemeSelect from './bc-theme-select.vue';
   import bcThemeSwitcher from './bc-theme-switcher.vue';
   import bcGithub from './bc-github.vue';
@@ -107,7 +107,7 @@
   
 		<header class="bg-background sticky inset-x-0 top-0 isolate flex shrink-0 items-center gap-2 border-b z-10">
 			<div class="flex h-14 w-full items-center gap-2 px-4">
-        <bcAsideToggle/>
+        <bcSidebarToggle/>
         <bcThemeSelect/>
         <bcThemeSwitcher/>
         <bcGithub/>

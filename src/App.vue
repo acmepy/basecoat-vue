@@ -1,10 +1,10 @@
 <script setup>
-import bcAside from './components/bc-aside.vue'
+import bcSidebar from './components/bc-sidebar.vue'
 import bcMain from './components/bc-main.vue'
 </script>
 
 <template>
-  <bcAside/>
+  <bcSidebar/>
   <bcMain/>
 <!--main>
   <button class="btn-icon-outline" onclick="document.dispatchEvent(new CustomEvent('basecoat:sidebar'))">

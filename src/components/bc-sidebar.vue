@@ -1,5 +1,12 @@
+<script setup>
+  const props = defineProps({
+    id:String,
+    class:{type:String, default:()=>'sidebar'},
+    align:{type:String, default:()=>'left'},
+  })
+</script>
 <template>
-  <aside id="sidebar" class="sidebar " data-side="left" aria-hidden="false">
+  <aside :id="id" :class="class" :data-side="align" aria-hidden="false">
     <nav aria-label="Sidebar navigation">
       <header>
         <a href="https://basecoatui.com/" class="btn-ghost p-2 h-12 w-full justify-start">
