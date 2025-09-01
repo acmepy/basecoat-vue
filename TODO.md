@@ -1,0 +1,2 @@
+    Optimizaciones
+- [ ] Utilizar iconify-json
