@@ -11,8 +11,16 @@ const menu = {
       svg:'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="h-4 w-4"><rect width="256" height="256" fill="none"></rect><line x1="208" y1="128" x2="128" y2="208" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"></line><line x1="192" y1="40" x2="40" y2="192" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"></line></svg>'
     },
     items:[
+      {block:'Main menu'},
+      {group:'Pages', items:[
+        {label:'Crud',         link:'/crud',                               iconify:'mdi:widgets-outline'},
+        {label:'Installation', link:'https://basecoatui.com/installation', iconify:'mdi:terminal'},
+        {label:'Kitchen sink', link:'https://basecoatui.com/kitchen-sink', iconify:'material-symbols:browse-outline'},
+        {label:'GitHub',       link:'https://github.com/hunvreus/basecoat',target:"_blank", iconify:'octicon:mark-github-24'},
+        {label:'Discord',      link:'https://basecoatui.com/chat',         target:"_blank", iconify:'fa6-brands:discord'}
+      ]}, 
       {block:'Getting started'},
-      {group:'Getting started', items:[
+      {items:[
         {label:'Introduction', link:'/introduction', iconify:'mdi:information-outline'},
         {label:'Installation', link:'https://basecoatui.com/installation', iconify:'mdi:terminal'},
         {label:'Kitchen sink', link:'https://basecoatui.com/kitchen-sink', iconify:'material-symbols:browse-outline'},

@@ -1,10 +1,10 @@
 <template>
-  <div class="mx-auto w-full flex-1 max-w-screen-md">
-    <header class="space-y-2">
-      <h1 class="text-2xl font-semibold tracking-tight sm:text-3xl xl:text-4xl">Introduction</h1>
-      <p class="text-muted-foreground text-[1.05rem] sm:text-base">Basecoat is a set of components built with Tailwind CSS. It is designed to be used with any traditional web stack</p>
-    </header>
-    <article class="pb-12 mt-8 content">
+	<div class="mx-auto w-full flex-1 max-w-screen-md">
+		<header class="space-y-2">
+			<h1 class="text-2xl font-semibold tracking-tight sm:text-3xl xl:text-4xl">Introduction</h1>
+			<p class="text-muted-foreground text-[1.05rem] sm:text-base">Basecoat is a set of components built with Tailwind CSS. It is designed to be used with any traditional web stack</p>
+		</header>
+		<article class="pb-12 mt-8 content">
 			<h2 id="why"><a href="#why">Why Basecoat?</a></h2>
 			<div class="prose">
 				<p><b>Basecoat brings the magic of <a href="https://ui.shadcn.com/">shadcn/ui</a> to any traditional web stack: no React required.</b></p>
@@ -29,9 +29,7 @@
 					<li><b>Free and open source</b>: MIT licensed.</li>
 				</ul>
 			</div>
-
 			<h2 id="how-it-works"><a href="#how-it-works">How it works</a></h2>
-
 			<div class="prose">
 				<p>Add a single CSS file to your Tailwind setup. Use components by dropping in simple classes like <code>btn</code>, <code>form</code>, or <code>card</code>.</p>
 
@@ -41,12 +39,9 @@
 
 				<p><a href="/installation">Check out the installation guide</a> to get started.</p>
 			</div>
-
 			<h2 id="how-can-i-help"><a href="#how-can-i-help">How can I help?</a></h2>
-
 			<div class="prose">
 				<p>Basecoat is 100% open source and free.</p>
-
 				<ul>
 					<li><a href="https://github.com/hunvreus/basecoat">Star it on GitHub</a></li>
 					<li><a href="https://github.com/hunvreus/basecoat/issues">Report bugs or request features</a></li>
@@ -54,20 +49,10 @@
 					<li><a href="https://github.com/sponsors/hunvreus">Sponsor the project</a></li>
 				</ul>
 			</div>
-
 		</article>
-  </div>
-  
-  <div class="hidden text-sm xl:block w-full max-w-[300px]">
-      
-      
-		<nav class="sticky top-22 space-y-2 [&_ul]:m-0 [&_ul]:list-none [&_ul_ul]:pl-4 [&_li]:mt-0 [&_li]:pt-2 [&_a]:inline-block [&_a]:no-underline [&_a]:transition-colors [&_a]:hover:text-foreground [&_a]:text-muted-foreground">
-  		<h4 class="font-medium">On This Page</h4>
-      <ul>
-        <li><a href="#why">Why Basecoat?</a></li>
-        <li><a href="#how-it-works">How it works</a></li>
-        <li><a href="#how-can-i-help">How can I help?</a></li>
-      </ul>
-		</nav>
-  </div>
-  </template>
+	</div>
+	<bc-on-this-page :items="[{link:'#why', text:'Why Basecoat?'},{link:'#how-it-works', text:'How it works'},{link:'#how-can-i-help', text:'How can I help?'}]"/>
+</template>
+<script setup>
+	import bcOnThisPage from '../components/bc-on-this-page.vue'
+</script>

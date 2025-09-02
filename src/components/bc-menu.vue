@@ -44,10 +44,7 @@
 					<section class="pb-4">
 						<ul>
 							<li v-for="i in g.items">
-								<a :href="i.link" hx-boost="true" hx-select="#content" hx-target="#content" hx-swap="outerHTML" :aria-current="isActive(i.link) ? 'page' : null">
-									<bcIcon :iconify="i.iconify" />
-									<span>{{i.label}}</span>
-								</a>
+								<a :href="i.link"><bcIcon :iconify="i.iconify" /><span>{{i.label}}</span></a>
 							</li>
 						</ul>
 					</section>
@@ -56,10 +53,7 @@
 
 			<ul v-if="!g.group&&!!g.items">
 				<li v-for="i in g.items">
-					<a :href="i.link" hx-boost="true" hx-select="#content" hx-target="#content" hx-swap="outerHTML" :aria-current="isActive(i.link) ? 'page' : null">
-						<bcIcon :iconify="i.iconify" />
-						<span>{{i.label}}</span>
-					</a>
+					<a :href="i.link"><bcIcon :iconify="i.iconify" /><span>{{i.label}}</span></a>
 				</li>
 			</ul>
 

@@ -15,6 +15,8 @@
         <bcGithub/>
       </div>
     </header>
-    <router-view/>
+   	<main class="mx-auto relative flex w-full max-w-screen-lg gap-10">
+      <router-view/>
+    </main>
 	</main>
 </template>
