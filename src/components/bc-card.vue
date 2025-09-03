@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div :class="`card ${cardClass}`">
     <header v-if="!!title">
       <h2>{{ title }}</h2>
       <p>{{ subtitle }}</p>
@@ -16,6 +16,7 @@
   defineProps({
     title:   {type: String, default: ''},
     subtitle: {type: String, default: ''},
-    sectionClass:{type:String}
+    sectionClass:{type:String}, 
+    cardClass:String
   })
 </script>
