@@ -12,9 +12,15 @@
   import bcMessages from '../components/bc-messages.vue';
   import bcToolbar from '../components/bc-toolbar.vue';
   import bcLoading from '../components/bc-preloader.vue'
-  //import { getCurrentInstance } from "vue";
-  //const { proxy } = getCurrentInstance();
+/*
+  import { getCurrentInstance } from "vue";
+  const { proxy } = getCurrentInstance();
 
+proxy.$loading.open();
+setTimeout(() => {
+    proxy.$loading.close();
+  }, 2000);
+*/
 window.preloader.open();
 setTimeout(() => {
     window.preloader.close();
