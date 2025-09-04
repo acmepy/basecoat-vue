@@ -1,5 +1,5 @@
 <script setup>
-  import {ref} from 'vue'
+  import {ref, onMounted} from 'vue'
 
   import bcSelect from '../components/bc-select.vue';
   import bcCard from '../components/bc-card.vue';
@@ -21,10 +21,13 @@ setTimeout(() => {
     proxy.$loading.close();
   }, 2000);
 */
-window.preloader.open();
-setTimeout(() => {
-    window.preloader.close();
+
+onMounted(()=>{
+  window.preloader.open();
+  setTimeout(() => {
+      window.preloader.close();
   }, 2000);
+})
 
   const teams = [
     {img:"/images/avatar-1.png", title:"Sofia Davis", footer:"m@example.com", after:{type:'select', value:"viewer", items:[
