@@ -16,7 +16,7 @@ const menu = {
       group: 'Pages',
       items: [
         { label: 'Crud', link: '/crud', iconify: 'mdi:widgets-outline' },
-        { label: 'Installation', link: 'https://basecoatui.com/installation', iconify: 'mdi:terminal' },
+        { label: 'Productos', link: '/productos', iconify: 'game-icons:cubeforce' },
         { label: 'Kitchen sink', link: 'https://basecoatui.com/kitchen-sink', iconify: 'material-symbols:browse-outline' },
         { label: 'GitHub', link: 'https://github.com/hunvreus/basecoat', target: '_blank', iconify: 'octicon:mark-github-24' },
         { label: 'Discord', link: 'https://basecoatui.com/chat', target: '_blank', iconify: 'fa6-brands:discord' },
