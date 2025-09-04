@@ -4,14 +4,14 @@
       <label v-if="!!label" :for="id">{{ label }}</label>
       <a v-if="!!resetLink" :href="resetLink" class="ml-auto inline-block text-sm underline-offset-4 hover:underline">{{ resetLabel }}</a>
     </div>
-    <input type="password" :id="id" />
+    <input :type="type" :id="id" />
   </div>
 </template>
 <script setup>
 import { useUniqueId } from '../js/utils';
 defineProps({
   label: String,
-  type: { type: String, default: 'text' },
+  type: { type: String, default: 'password' },
   id: { type: String, default: () => useUniqueId('input') },
   resetLabel: String,
   resetLink: String,

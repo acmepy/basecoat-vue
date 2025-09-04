@@ -1,11 +1,13 @@
 <template>
   <i v-if="!!material" :class="'material-icons ' + iconClass" :style="iconStyle" :data-tooltip="tooltip">{{ material }}</i>
   <i v-if="!!fa" :data-tooltip="tooltip" :class="'fa ' + fa" />
-  <div v-if="!!svg" v-html="svg" :class="iconClass"></div>
+  <!--div v-if="!!svg" v-html="svg" :class="iconClass"></div-->
+  <bcSvg v-if="!!svg" :name="svg" :class="iconClass" />
   <Icon v-if="!!iconify" :icon="iconify" :width="width" :height="height" :class="iconClass" />
 </template>
 <script setup>
 import { Icon } from '@iconify/vue';
+import bcSvg from './bc-svg.vue';
 const props = defineProps({
   material: String,
   fa: String,
