@@ -11,10 +11,9 @@
       <img v-if="!!img" :src="img" :class="imgClass" />
       <div class="grid flex-1 text-left text-sm leading-tight">
         <span v-if="!!title" class="truncate font-medium">{{ title }}</span>
-        <span v-if="!!footer" class="truncate text-xs">{{ footer }}</span>
+        <span v-if="!!text" class="truncate text-xs">{{ text }}</span>
       </div>
       <bcIcon iconify="material-symbols:unfold-more" iconStyle="font-size:15px; color:gray;" />
-      <!--bcSvg name="chevron-up-down" /-->
     </button>
     <div :id="`${uniqueId}-popover`" data-popover aria-hidden="true" data-side="top" class="w-[271px] md:w-[239px]">
       <div class="grid gap-4">

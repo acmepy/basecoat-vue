@@ -7,12 +7,12 @@
     onclick="document.dispatchEvent(new CustomEvent('basecoat:theme'))"
     class="btn-icon-outline size-8"
   >
-    <span class="hidden dark:block"><bcSvg name="sun" /></span>
-    <span class="block dark:hidden"><bcSvg name="moon" /></span>
+    <span class="hidden dark:block"><bcIcon iconify="wi:day-sunny" /></span>
+    <span class="block dark:hidden"><bcIcon iconify="fa7-regular:moon" /></span>
   </button>
 </template>
 <script setup>
-import bcSvg from './bc-svg.vue';
+import bcIcon from './bc-icon.vue';
 
 (() => {
   try {
