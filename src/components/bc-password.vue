@@ -1,10 +1,10 @@
 <template>
   <div class="grid gap-2">
     <div class="flex items-center gap-2">
-    <label v-if="!!label" :for="inputId">{{ label }}</label>
+    <label v-if="!!label" :for="id">{{ label }}</label>
     <a v-if="!!resetLink" :href="resetLink" class="ml-auto inline-block text-sm underline-offset-4 hover:underline">{{ resetLabel }}</a>
     </div>
-    <input type="password" :id="inputId">
+    <input type="password" :id="id">
   </div>
 </template>
 <script setup>
@@ -14,7 +14,7 @@
   defineProps({
     label:String,
     type:  {type: String, default: 'text'},
-		inputId: {type:String, default:()=>useUniqueId()},
+		id: {type:String, default:()=>useUniqueId('input')},
     resetLabel:String,
     resetLink:String,
     placeholder: String,

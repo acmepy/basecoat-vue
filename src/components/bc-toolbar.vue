@@ -5,9 +5,9 @@
     shadow: {type: Boolean,default: true},
     position: {type: String, default: "bottom",  validator: (value) => ["bottom", "top"].includes(value)},
     items:{type:Array, default:[
-      {text:'Home', material:'home'},
-      {text:'Buscar', material:'search'},
-      {text:'Perfil', material:'person'}
+      {text:'Home', iconify:'ic:outline-home'},
+      {text:'Buscar', iconify:'ic:twotone-search'},
+      {text:'Perfil', iconify:'ic:outline-person-outline'}
     ]}
   })
 

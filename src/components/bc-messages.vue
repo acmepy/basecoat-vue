@@ -6,23 +6,23 @@
 				<h3 class="text-sm font-medium leading-none">{{name}}</h3>
 				<p class="text-sm text-muted-foreground">{{email}}</p>
 			</div>
-			<bcButton material="add" buttonClass="btn-icon-outline rounded-full" iconStyle="font-size:40px; color:gray;"  tooltip="New message"/>
+			<bcButton iconify="material-symbols:add" buttonClass="btn-icon-outline rounded-full" iconStyle="font-size:40px; color:gray;"  tooltip="New message"/>
 		</header>
 		<section class="space-y-4">
 			<div v-for="m in messages" :class="messagesClass[m.type]">{{m.text}}</div>
 		</section>
 		<footer class="flex items-center gap-2">
-			<input type="text" class="input w-full" id="input-message" placeholder="Type your message here..." v-model="message" @input="(value)=>sendDisabled=!value">
-			<bcButton material="send" buttonClass="btn-icon" iconClass="rotate-315" iconStyle="font-size:40px; color:gray;"  tooltip="New message" :disabled="sendDisabled"/>
+			<input type="text" class="input w-full" id="input-message" placeholder="Type your message here..." v-model="message" @input="(value)=>sendDisabled=!!value">
+			<bcButton iconify="material-symbols:send-outline-rounded" buttonClass="btn-icon" iconClass="rotate-315" iconStyle="font-size:40px; color:gray;"  tooltip="New message" :disabled="sendDisabled"/>
 		</footer>
-	</bcCard>"
+	</bcCard>
 </template>
 <script setup>
 	import {ref} from 'vue'
 	import bcButton from './bc-button.vue';
-import bcCard from './bc-card.vue';
+	import bcCard from './bc-card.vue';
 
-const props = defineProps({
+	const props = defineProps({
 		avatar:{type:String},
 		name:{type:String},
 		email:{type:String},

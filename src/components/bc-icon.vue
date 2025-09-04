@@ -2,7 +2,7 @@
   <i v-if="!!material" :class="'material-icons '+iconClass" :style="iconStyle" :data-tooltip="tooltip">{{ material }}</i>
   <i v-if="!!fa" :data-tooltip="tooltip" :class="'fa '+fa"/>
   <div v-if="!!svg" v-html="svg" :class="iconClass"></div>
-  <Icon v-if="!!iconify" :icon="iconify"  :width="width" :height="height" />
+  <Icon v-if="!!iconify" :icon="iconify"  :width="width" :height="height" :class="iconClass" />
 </template>
 <script setup>
   import { Icon } from '@iconify/vue';
@@ -16,8 +16,8 @@
     iconClass:String,
     iconStyle:String, 
     iconify:String,
-    width:{type:Number, default:()=>24},
-    height:{type:Number, default:()=>24},
+    width:{type:[Number, String], default:()=>24},
+    height:{type:[Number, String], default:()=>24},
     debug:{type:Boolean, default:()=>false}
   })
   if(props.debug) console.log({material:!!props.material, fa:!!props.fa, svg:!!props.svg, iconClass:props.iconClass}, props)

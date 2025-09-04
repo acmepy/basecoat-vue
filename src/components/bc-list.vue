@@ -9,11 +9,11 @@
     <div v-if="i.after.type=='select'" :id="'select-'+x" class="select">
       <button type="button" class="btn-outline justify-between font-normal " :id="'select-'+x+'-trigger'" aria-haspopup="listbox" aria-expanded="false" :aria-controls="'select-'+x+'-listbox'">
         <span class="truncate">{{ i.after.items.find(a=>a.value==i.after.value).text }}</span>
-        <BcIcon material="unfold_more" iconStyle="font-size:15px; color:gray;"/>
+        <BcIcon iconify="material-symbols:unfold-more" iconStyle="font-size:15px; color:gray;"/>
       </button>
       <div :id="'select-'+x+'-popover'" data-popover aria-hidden="true" data-align="end">
         <header>
-          <BcIcon material="search" />
+          <BcIcon iconify="material-symbols:search" />
           <input type="text" value="" placeholder="Search entries..." :id="'input-serch-'+x" autocomplete="off" autocorrect="off" spellcheck="false" aria-autocomplete="list" role="combobox" aria-expanded="false" :aria-controls="'select-'+x+'-listbox'" :aria-labelledby="'select-'+x+'-trigger'">
         </header>
         <div role="listbox" :id="'select-'+x+'-listbox'" aria-orientation="vertical" :aria-labelledby="'select-'+x+'-trigger'">
