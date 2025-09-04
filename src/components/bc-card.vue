@@ -5,7 +5,7 @@
       <p>{{ subtitle }}</p>
     </header>
     <section :class="sectionClass">
-      <slot/>
+      <slot />
     </section>
     <footer v-if="$slots.footer">
       <slot name="footer" />
@@ -13,10 +13,10 @@
   </div>
 </template>
 <script setup>
-  defineProps({
-    title:   {type: String, default: ''},
-    subtitle: {type: String, default: ''},
-    sectionClass:{type:String}, 
-    cardClass:String
-  })
+defineProps({
+  title: { type: String, default: '' },
+  subtitle: { type: String, default: '' },
+  sectionClass: { type: String },
+  cardClass: String,
+});
 </script>

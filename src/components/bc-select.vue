@@ -1,19 +1,23 @@
 <template>
   <div :class="containerClass">
-    <label :for="id">{{label}}</label>
+    <label :for="id">{{ label }}</label>
     <select :id="id" class="w-full" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)">
-      <option v-for="(opt, i) in options" :key="i" :value="opt.value">{{ opt.text }}</option>
+      <option v-for="(opt, i) in options" :key="i" :value="opt.value">
+        {{ opt.text }}
+      </option>
     </select>
   </div>
 </template>
 <script setup>
-  defineProps({
-    label:      {type: String, default: ''},
-    id:         {type: String, required: true},
-    options:    {type: Array,default: () => []},
-    modelValue: {type: [String, Number],default: ''},
-    containerClass:{type:String}
-  })
+import { useUniqueId } from '../js/utils';
 
-  defineEmits(['update:modelValue'])
+defineProps({
+  label: { type: String, default: '' },
+  id: { type: String, default: () => useUniqueId('select') },
+  options: { type: Array, default: () => [] },
+  modelValue: { type: [String, Number], default: '' },
+  containerClass: { type: String },
+});
+
+defineEmits(['update:modelValue']);
 </script>

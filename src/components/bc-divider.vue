@@ -9,7 +9,7 @@
   </div>
 </template>
 <script setup>
-  const props = defineProps({
-    label:String
-  })
+const props = defineProps({
+  label: String,
+});
 </script>

@@ -1,29 +1,28 @@
-import { createApp } from "vue";
-import BcLoading from "../components/bc-preloader.vue";
+import { createApp } from 'vue';
+import BcLoading from '../components/bc-preloader.vue';
 
-  let instance;
+let instance;
 
-  function init() {
-    if (!instance) {
-      const container = document.createElement("div");
-      document.body.appendChild(container);
-      const loadingApp = createApp(BcLoading);
-      instance = loadingApp.mount(container);
-    }
-    return instance;
+function init() {
+  if (!instance) {
+    const container = document.createElement('div');
+    document.body.appendChild(container);
+    const loadingApp = createApp(BcLoading);
+    instance = loadingApp.mount(container);
   }
+  return instance;
+}
 
-  window.preloader = {
-    open() {
-      init().open();
-    },
-    close() {
-      init().close();
-    },
-  };
+window.preloader = {
+  open() {
+    init().open();
+  },
+  close() {
+    init().close();
+  },
+};
 
-
-    /*export default {
+/*export default {
   install(app) {
     let instance;
 

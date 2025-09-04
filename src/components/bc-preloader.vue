@@ -1,17 +1,3 @@
-<script setup>
-  import { ref } from "vue";
-  import bcIcon from "./bc-icon.vue";
-
-  defineProps({text:String})
-
-  const showModal = ref(false);
-
-  const open  = () => (showModal.value = true);
-  const close = () => (showModal.value = false);
-
-  defineExpose({ open, close });
-</script>
-
 <template>
   <!--button @click="open" class="px-4 py-2 bg-blue-600 text-white rounded-lg">Abrir Modal</button-->
   <div v-if="showModal" class="bg-background opacity-80 fixed inset-0 flex items-center z-50"></div>
@@ -23,3 +9,17 @@
     </div>
   </div>
 </template>
+
+<script setup>
+import { ref } from 'vue';
+import bcIcon from './bc-icon.vue';
+
+defineProps({ text: String });
+
+const showModal = ref(false);
+
+const open = () => (showModal.value = true);
+const close = () => (showModal.value = false);
+
+defineExpose({ open, close });
+</script>

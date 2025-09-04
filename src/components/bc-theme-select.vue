@@ -8,29 +8,29 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted } from 'vue';
 
-const theme = ref('')
+const theme = ref('');
 
 const applyTheme = () => {
   // limpiar clases previas
-  document.documentElement.classList.forEach(c => {
-    if (c.startsWith('theme-')) document.documentElement.classList.remove(c)
-  })
+  document.documentElement.classList.forEach((c) => {
+    if (c.startsWith('theme-')) document.documentElement.classList.remove(c);
+  });
 
   if (theme.value) {
-    document.documentElement.classList.add(`theme-${theme.value}`)
-    localStorage.setItem('themeVariant', theme.value)
+    document.documentElement.classList.add(`theme-${theme.value}`);
+    localStorage.setItem('themeVariant', theme.value);
   } else {
-    localStorage.removeItem('themeVariant')
+    localStorage.removeItem('themeVariant');
   }
-}
+};
 
 onMounted(() => {
-  const stored = localStorage.getItem('themeVariant')
+  const stored = localStorage.getItem('themeVariant');
   if (stored) {
-    theme.value = stored
-    applyTheme()
+    theme.value = stored;
+    applyTheme();
   }
-})
+});
 </script>
