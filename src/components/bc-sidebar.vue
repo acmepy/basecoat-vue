@@ -21,6 +21,8 @@
           img="https://github.com/hunvreus.png"
           title="Ronan Berder"
           text="@hunvreus"
+          popoverSide="top"
+          popoverClass="w-[271px] md:w-[239px]"
           :popover="{
             title: 'I hope you like Basecoat...',
             text: `My name is <a href='https://ronanberder.com' target='_blank'>Ronan</a> and I made this (and <a class='underline underline-offset-4' href='https://pagescms.org' target='_target'>other things</a>). If you find it useful, please consider sponsoring me on GitHub or following me on X.`,

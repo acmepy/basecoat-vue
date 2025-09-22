@@ -42,7 +42,10 @@ import bcSvg from './bc-svg.vue';
 
 const props = defineProps({
   items: { type: Array, default: () => [] },
+  debug: { type: Boolean, default: () => false },
 });
+
+if (props.debug) console.log('bc-menu', props.items);
 
 const currentUrl = ref('');
 //const isActive = (link) => currentUrl.value.includes(link);

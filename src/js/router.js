@@ -5,6 +5,7 @@ import Home from '../docs/home.vue';
 import Introduction from '../docs/introduction.vue';
 import Crud from '../pages/crud.vue';
 import Productos from '../pages/productos.vue';
+import Task from '../pages/task.vue';
 // ... importa los demás
 
 const routes = [
@@ -12,6 +13,7 @@ const routes = [
   { path: '/introduction', name: 'Introduction', component: Introduction },
   { path: '/crud', name: 'Crud', component: Crud },
   { path: '/productos', name: 'Productos', component: Productos },
+  { path: '/task', name: 'Task', component: Task },
   // ... agrega los demás aquí
 ];
 

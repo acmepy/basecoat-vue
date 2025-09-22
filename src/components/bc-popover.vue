@@ -9,19 +9,34 @@
       data-keep-mobile-sidebar-open=""
     >
       <img v-if="!!img" :src="img" :class="imgClass" />
-      <div class="grid flex-1 text-left text-sm leading-tight">
+      <div v-if="!!title" class="grid flex-1 text-left text-sm leading-tight">
         <span v-if="!!title" class="truncate font-medium">{{ title }}</span>
         <span v-if="!!text" class="truncate text-xs">{{ text }}</span>
       </div>
-      <bcIcon iconify="material-symbols:unfold-more" iconStyle="font-size:15px; color:gray;" />
+      <bcIcon v-if="!!title" iconify="material-symbols:unfold-more" iconStyle="font-size:15px; color:gray;" />
     </button>
-    <div :id="`${uniqueId}-popover`" data-popover aria-hidden="true" data-side="top" class="w-[271px] md:w-[239px]">
-      <div class="grid gap-4">
-        <header class="grid gap-1.5">
+    <div :id="`${uniqueId}-popover`" data-popover aria-hidden="true" :data-side="popoverSide" :class="popoverClass">
+      <div class="grid gap-2">
+        <header class="border-b pl-3">
           <h2 class="font-semibold">{{ popover.title }}</h2>
           <p v-if="popover.text.indexOf('>') < 0" class="text-muted-foreground text-sm">{{ popover.text }}</p>
           <div v-if="popover.text.indexOf('>') >= 0" v-html="`<p class='text-muted-foreground text-sm'>${popover.text}</p>`"></div>
         </header>
+        <bcMenu v-if="!!popover.menu" :items="popover.menu" :debug="true" />
+        <!--ul v-if="!!popover.menu">
+          <li v-for="(m, mx) in popover.menu">
+            <div v-if="!!m.divider" class="border-b"></div>
+            <a v-if="!!m.link" :href="m.link">
+              <span>{{ m.label }}</span>
+            </a>
+          </li>
+        </ul-->
+        <!--div v-if="!!popover.menu">
+          <div class="mb-2" v-for="(m, mx) in popover.menu">
+            <div v-if="!!m.divider" class="border-b"></div>
+            <a v-if="!!m.link" :href="m.link" class="pl-3"> {{ m.label }}</a>
+          </div>
+        </div-->
         <footer class="grid gap-2" v-if="$slots.popoverfooter">
           <slot name="popoverfooter" />
         </footer>
@@ -32,6 +47,7 @@
 <script setup>
 import { useUniqueId } from '../js/utils';
 import bcIcon from './bc-icon.vue';
+import bcMenu from './bc-menu.vue';
 const uniqueId = useUniqueId('popover');
 
 const props = defineProps({
@@ -40,6 +56,8 @@ const props = defineProps({
   classContainer: { type: String, default: 'popover' },
   img: String,
   imgClass: { type: String, default: () => 'rounded-lg shrink-0 size-8' },
+  popoverSide: String,
+  popoverClass: String,
   popover: {
     type: Object,
     default: () => {
