@@ -1,16 +1,16 @@
 <script setup>
 import { ref, onMounted } from "vue";
 
-import bcSelect from "../components/bc-select.vue";
-import bcCard from "../components/bc-card.vue";
-import bcList from "../components/bc-list.vue";
-import bcInput from "../components/bc-input.vue";
-import bcRadio from "../components/bc-radio.vue";
-import bcButton from "../components/bc-button.vue";
-import bcDivider from "../components/bc-divider.vue";
-import bcPassword from "../components/bc-password.vue";
-import bcMessages from "../components/bc-messages.vue";
-import bcToolbar from "../components/bc-toolbar.vue";
+import UiSelect from "../components/ui-select.vue";
+import UiCard from "../components/ui-card.vue";
+import UiList from "../components/ui-list.vue";
+import UiInput from "../components/ui-input.vue";
+import UiRadio from "../components/ui-radio.vue";
+import UiButton from "../components/ui-button.vue";
+import UiDivider from "../components/ui-divider.vue";
+import UiPassword from "../components/ui-password.vue";
+import UiMessages from "../components/ui-messages.vue";
+import UiToolbar from "../components/ui-toolbar.vue";
 
 /*
   import { getCurrentInstance } from "vue";
@@ -172,28 +172,17 @@ const payMethods = [
 </script>
 
 <template>
-  <!--bcToolbar position="top">
-      <bcButton text="Home" iconify="mdi:home" buttonClass="flex flex-col items-center text-sm text-gray-600" />
-      <bcButton text="Buscar" iconify="mdi:search" buttonClass="flex flex-col items-center text-sm text-gray-600" />
-      <bcButton text="Perfil" iconify="mdi:person" buttonClass="flex flex-col items-center text-sm text-gray-600" />
-    </bcToolbar-->
-  <bcToolbar>
-    <bcButton
-      text="Home"
-      iconify="material-symbols:home"
-      buttonClass="flex flex-col items-center text-sm text-gray-600"
-    />
-    <bcButton
-      text="Buscar"
-      iconify="mdi:search"
-      buttonClass="flex flex-col items-center text-sm text-gray-600"
-    />
-    <bcButton
-      text="Perfil"
-      iconify="mdi:person"
-      buttonClass="flex flex-col items-center text-sm text-gray-600"
-    />
-  </bcToolbar>
+  <!--UiToolbar position="top">
+      <UiButton text="Home" iconify="mdi:home" buttonClass="flex flex-col items-center text-sm text-gray-600" />
+      <UiButton text="Buscar" iconify="mdi:search" buttonClass="flex flex-col items-center text-sm text-gray-600" />
+      <UiButton text="Perfil" iconify="mdi:person" buttonClass="flex flex-col items-center text-sm text-gray-600" />
+    </UiToolbar-->
+  <UiToolbar>
+    <UiButton text="Home" iconify="material-symbols:home"
+      buttonClass="flex flex-col items-center text-sm text-gray-600" />
+    <UiButton text="Buscar" iconify="mdi:search" buttonClass="flex flex-col items-center text-sm text-gray-600" />
+    <UiButton text="Perfil" iconify="mdi:person" buttonClass="flex flex-col items-center text-sm text-gray-600" />
+  </UiToolbar>
 
   <div class="p-4 md:p-6 xl:p-12">
     <div class="max-w-screen-lg mx-auto">
@@ -208,198 +197,104 @@ const payMethods = [
           </p>
         </div>
         <div class="flex w-full items-center justify-start gap-2 pt-2">
-          <a class="btn" href="https://basecoatui.com/installation"
-            >Get Started</a
-          >
-          <a class="btn-outline" href="https://basecoatui.com/introduction"
-            >Learn more</a
-          >
-          <bcButton
-            buttonClass="btn-outline"
-            text="Preloader"
-            @click="
-              () => {
-                const load = bcLoading;
-                load.open();
-              }
-            "
-          />
+          <a class="btn" href="https://basecoatui.com/installation">Get Started</a>
+          <a class="btn-outline" href="https://basecoatui.com/introduction">Learn more</a>
+          <UiButton buttonClass="btn-outline" text="Preloader" @click="
+            () => {
+              const load = UiLoading;
+              load.open();
+            }
+          " />
         </div>
       </header>
 
       <section class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-8">
         <div class="flex flex-col gap-4">
-          <bcCard
-            title="Team Members"
-            subtitle="Invite your team members to collaborate."
-          >
-            <bcList :items="teams" />
-          </bcCard>
+          <UiCard title="Team Members" subtitle="Invite your team members to collaborate.">
+            <UiList :items="teams" />
+          </UiCard>
 
-          <bcCard
-            title="Cookie Settings"
-            subtitle="Manage your cookie settings here."
-            sectionClass="text-sm grid gap-6"
-          >
-            <bcList
-              :items="cookies"
-              titleClass="font-medium"
-              footerClass="text-muted-foreground"
-              liClass="flex items-center justify-between gap-2"
-              groupClass="flex flex-col gap-0.5"
-            />
+          <UiCard title="Cookie Settings" subtitle="Manage your cookie settings here."
+            sectionClass="text-sm grid gap-6">
+            <UiList :items="cookies" titleClass="font-medium" footerClass="text-muted-foreground"
+              liClass="flex items-center justify-between gap-2" groupClass="flex flex-col gap-0.5" />
             <template #footer>
               <button type="button" class="btn-outline w-full">
                 Save preferences
               </button>
             </template>
-          </bcCard>
+          </UiCard>
 
-          <bcCard
-            title="Payment Method"
-            subtitle="Add a new payment method to your account."
-          >
+          <UiCard title="Payment Method" subtitle="Add a new payment method to your account.">
             <form class="form grid gap-6">
-              <bcRadio :items="payMethods" />
-              <bcInput
-                label="Name"
-                type="text"
-                id="payment-method-name"
-                placeholder="John Doe"
-                containerClass="grid gap-2"
-              />
-              <bcInput
-                label="City"
-                type="text"
-                id="payment-method-city"
-                placeholder="New York"
-                containerClass="grid gap-2"
-              />
-              <bcInput
-                label="Card Number"
-                type="text"
-                id="payment-method-card-number"
-                placeholder="1234 5678 9012 3456"
-                containerClass="grid gap-2"
-              />
+              <UiRadio :items="payMethods" />
+              <UiInput label="Name" type="text" id="payment-method-name" placeholder="John Doe"
+                containerClass="grid gap-2" />
+              <UiInput label="City" type="text" id="payment-method-city" placeholder="New York"
+                containerClass="grid gap-2" />
+              <UiInput label="Card Number" type="text" id="payment-method-card-number" placeholder="1234 5678 9012 3456"
+                containerClass="grid gap-2" />
               <div class="flex gap-4">
-                <bcSelect
-                  label="Expires"
-                  id="payment-method-expiration-month"
-                  v-model="selectedMonth"
-                  :options="months"
-                  containerClass="grid gap-2 flex-1"
-                />
-                <bcSelect
-                  label="Year"
-                  id="payment-method-expiration-year"
-                  v-model="selectedYear"
-                  :options="years"
-                  containerClass="grid gap-2 flex-1"
-                />
-                <bcInput
-                  label="CVV"
-                  type="text"
-                  id="payment-method-cvv"
-                  placeholder="123"
-                  containerClass="grid gap-2 flex-1"
-                />
+                <UiSelect label="Expires" id="payment-method-expiration-month" v-model="selectedMonth" :options="months"
+                  containerClass="grid gap-2 flex-1" />
+                <UiSelect label="Year" id="payment-method-expiration-year" v-model="selectedYear" :options="years"
+                  containerClass="grid gap-2 flex-1" />
+                <UiInput label="CVV" type="text" id="payment-method-cvv" placeholder="123"
+                  containerClass="grid gap-2 flex-1" />
               </div>
               <button type="button" class="btn w-full">Continue</button>
             </form>
-          </bcCard>
+          </UiCard>
         </div>
 
         <div class="flex flex-col gap-4">
-          <bcMessages
-            avatar="/images/avatar-1.png"
-            name="Sofia Davis"
-            email="m@example.com"
-            :messages="[
-              { type: 'received', text: 'Hi, how can I help you today?' },
-              {
-                type: 'sent',
-                text: 'Hey, I\'m having trouble with my account.',
-              },
-              { type: 'received', text: 'What seems to be the problem?' },
-              { type: 'sent', text: 'I can\'t log in.' },
-            ]"
-          />
+          <UiMessages avatar="/images/avatar-1.png" name="Sofia Davis" email="m@example.com" :messages="[
+            { type: 'received', text: 'Hi, how can I help you today?' },
+            {
+              type: 'sent',
+              text: 'Hey, I\'m having trouble with my account.',
+            },
+            { type: 'received', text: 'What seems to be the problem?' },
+            { type: 'sent', text: 'I can\'t log in.' },
+          ]" />
 
-          <bcCard
-            title="Create an account"
-            subtitle="Enter your email below to create your account"
-            sectionClass="grid gap-6"
-          >
+          <UiCard title="Create an account" subtitle="Enter your email below to create your account"
+            sectionClass="grid gap-6">
             <div class="flex gap-6">
-              <bcButton
-                text="GitHub"
-                buttonClass="btn-outline flex-1"
-                svg='<svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>'
-              />
-              <bcButton
-                text="Google"
-                buttonClass="btn-outline flex-1"
-                svg='<svg role="img" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google</title><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg>'
-              />
+              <UiButton text="GitHub" buttonClass="btn-outline flex-1"
+                svg='<svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>' />
+              <UiButton text="Google" buttonClass="btn-outline flex-1"
+                svg='<svg role="img" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google</title><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg>' />
             </div>
-            <bcDivider label="Or continue with" />
+            <UiDivider label="Or continue with" />
             <form class="form grid gap-6">
-              <bcInput label="Email" type="email" id="demo-card-form-email" />
-              <bcPassword
-                label="Password"
-                inputId="demo-card-form-password"
-                resetLabel="Forgot your password?"
-                resetLink="/"
-              />
-              <bcButton text="Create an account" buttonClass="btn w-full" />
+              <UiInput label="Email" type="email" id="demo-card-form-email" />
+              <UiPassword label="Password" inputId="demo-card-form-password" resetLabel="Forgot your password?"
+                resetLink="/" />
+              <UiButton text="Create an account" buttonClass="btn w-full" />
             </form>
-          </bcCard>
+          </UiCard>
 
-          <bcCard
-            title="Report an issue"
-            subtitle="What area are you having problems with?"
-          >
+          <UiCard title="Report an issue" subtitle="What area are you having problems with?">
             <form class="form grid gap-6">
               <div class="flex gap-4">
-                <bcSelect
-                  label="Area"
-                  id="report-issue-area"
-                  v-model="selectedArea"
-                  :options="areas"
-                  containerClass="grid gap-2 flex-1"
-                />
-                <bcSelect
-                  label="Security Level"
-                  id="report-issue-security-level"
-                  v-model="selectedLevel"
-                  :options="levels"
-                  containerClass="grid gap-2 flex-1"
-                />
+                <UiSelect label="Area" id="report-issue-area" v-model="selectedArea" :options="areas"
+                  containerClass="grid gap-2 flex-1" />
+                <UiSelect label="Security Level" id="report-issue-security-level" v-model="selectedLevel"
+                  :options="levels" containerClass="grid gap-2 flex-1" />
               </div>
-              <bcInput
-                label="Subject"
-                type="text"
-                id="report-issue-subject"
-                placeholder="I need help with..."
-                inputClass="w-full"
-                containerClass="grid gap-2"
-              />
-              <bcInput
-                label="Description"
-                type="text"
-                id="report-issue-description"
-                placeholder="Please include all information relevant to your issue.."
-                inputClass="w-full"
-                containerClass="grid gap-2"
-              />
+              <UiInput label="Subject" type="text" id="report-issue-subject" placeholder="I need help with..."
+                inputClass="w-full" containerClass="grid gap-2" />
+              <UiInput label="Description" type="text" id="report-issue-description"
+                placeholder="Please include all information relevant to your issue.." inputClass="w-full"
+                containerClass="grid gap-2" />
               <!-- se necesita algo como card-form -->
               <footer class="flex items-center gap-4 justify-between">
                 <button type="button" class="btn-sm-ghost">Cancel</button>
                 <button type="button" class="btn-sm">Continue</button>
               </footer>
             </form>
-          </bcCard>
+          </UiCard>
         </div>
       </section>
     </div>

@@ -7,44 +7,29 @@
         <div :class="footerClass">{{ i.footer }}</div>
       </div>
       <div v-if="i.after.type == 'select'" :id="'select-' + x" class="select">
-        <button
-          type="button"
-          class="btn-outline justify-between font-normal"
-          :id="'select-' + x + '-trigger'"
-          aria-haspopup="listbox"
-          aria-expanded="false"
-          :aria-controls="'select-' + x + '-listbox'"
-        >
-          <span class="truncate">{{ i.after.items.find((a) => a.value == i.after.value).text }}</span>
-          <bcIcon iconify="material-symbols:unfold-more" iconStyle="font-size:15px; color:gray;" />
+        <button type="button" class="btn-outline justify-between font-normal" :id="'select-' + x + '-trigger'"
+          aria-haspopup="listbox" aria-expanded="false" :aria-controls="'select-' + x + '-listbox'">
+          <span class="truncate">{{i.after.items.find((a) => a.value == i.after.value).text}}</span>
+          <UiIcon iconify="material-symbols:unfold-more" iconStyle="font-size:15px; color:gray;" />
         </button>
         <div :id="'select-' + x + '-popover'" data-popover aria-hidden="true" data-align="end">
           <header>
-            <bcIcon iconify="material-symbols:search" />
-            <input
-              type="text"
-              value=""
-              placeholder="Search entries..."
-              :id="'input-serch-' + x"
-              autocomplete="off"
-              autocorrect="off"
-              spellcheck="false"
-              aria-autocomplete="list"
-              role="combobox"
-              aria-expanded="false"
-              :aria-controls="'select-' + x + '-listbox'"
-              :aria-labelledby="'select-' + x + '-trigger'"
-            />
+            <UiIcon iconify="material-symbols:search" />
+            <input type="text" value="" placeholder="Search entries..." :id="'input-serch-' + x" autocomplete="off"
+              autocorrect="off" spellcheck="false" aria-autocomplete="list" role="combobox" aria-expanded="false"
+              :aria-controls="'select-' + x + '-listbox'" :aria-labelledby="'select-' + x + '-trigger'" />
           </header>
-          <div role="listbox" :id="'select-' + x + '-listbox'" aria-orientation="vertical" :aria-labelledby="'select-' + x + '-trigger'">
-            <div v-for="(ii, xx) in i.after.items" :id="'select-' + x + '-items-' + xx" role="option" :data-value="ii.value">{{ ii.text }}</div>
+          <div role="listbox" :id="'select-' + x + '-listbox'" aria-orientation="vertical"
+            :aria-labelledby="'select-' + x + '-trigger'">
+            <div v-for="(ii, xx) in i.after.items" :id="'select-' + x + '-items-' + xx" role="option"
+              :data-value="ii.value">{{ ii.text }}</div>
           </div>
         </div>
         <input type="hidden" name="'select-'+x+'-value'" id="input-hiden" :modelValue="i.after.value" />
       </div>
-      <bcSwitch v-if="i.after.type == 'switch'" :modelValue="i.after.checked" />
+      <UiSwitch v-if="i.after.type == 'switch'" :modelValue="i.after.checked" />
       <!--input v-if="i.after.type=='switch'" type="checkbox" role="switch" class="input" v-model="i.after.checked" /-->
-      <!--BcCheckBox v-if="i.after.type=='checkbox'" :modelValue="i.after.checked"/-->
+      <!--UiCheckBox v-if="i.after.type=='checkbox'" :modelValue="i.after.checked"/-->
     </li>
     <!--li class="flex items-center gap-4">
     <img src="../assets/images/avatar-3.png" alt="Isabella Nguyen" class="w-10 h-10 rounded-full" />
@@ -84,8 +69,8 @@
   </label-->
 </template>
 <script setup>
-import bcIcon from './bc-icon.vue';
-import bcSwitch from './bc-switch.vue';
+import UiIcon from './ui-icon.vue';
+import UiSwitch from './ui-switch.vue';
 
 defineProps({
   items: { type: Array, default: () => [] },

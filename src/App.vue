@@ -1,6 +1,6 @@
 <script setup>
-import bcSidebar from './components/bc-sidebar.vue';
-import bcMain from './components/bc-main.vue';
+import UiSidebar from './components/ui-sidebar.vue';
+import UiMain from './components/ui-main.vue';
 
 const menu = {
   header: {
@@ -71,8 +71,8 @@ const menu = {
 </script>
 
 <template>
-  <bcSidebar :header="menu.header" :items="menu.items" />
-  <bcMain />
+  <UiSidebar :header="menu.header" :items="menu.items" />
+  <UiMain />
 </template>
 
 <style scoped></style>

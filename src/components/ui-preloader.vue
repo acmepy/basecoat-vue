@@ -4,7 +4,7 @@
 
   <div v-if="showModal" class="fixed inset-0 flex items-center justify-center z-50">
     <div class="bg-card opacity-100 border p-6 rounded-2xl shadow-lg flex flex-col items-center">
-      <bcIcon iconify="svg-spinners:90-ring-with-bg" width="60" height="60" />
+      <UiIcon iconify="svg-spinners:90-ring-with-bg" width="60" height="60" />
       <p v-if="!!text" class="mt-4 text-gray-700">{{ text }}</p>
     </div>
   </div>
@@ -12,7 +12,7 @@
 
 <script setup>
 import { ref } from 'vue';
-import bcIcon from './bc-icon.vue';
+import UiIcon from './ui-icon.vue';
 
 defineProps({ text: String });
 

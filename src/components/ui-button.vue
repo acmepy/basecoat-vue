@@ -1,11 +1,12 @@
 <template>
   <button type="button" :class="buttonClass" :data-tooltip="tooltip">
-    <bcIcon v-if="!!material || !!fa || !!svg || iconify" :material="material" :fa="fa" :svg="svg" :iconify="iconify" :iconClass="iconClass" />
+    <UiIcon v-if="!!material || !!fa || !!svg || iconify" :material="material" :fa="fa" :svg="svg" :iconify="iconify"
+      :iconClass="iconClass" />
     {{ text }}
   </button>
 </template>
 <script setup>
-import BcIcon from './bc-icon.vue';
+import UiIcon from './ui-icon.vue';
 const prop = defineProps({
   buttonClass: { type: String, default: () => 'btn' },
   material: String,

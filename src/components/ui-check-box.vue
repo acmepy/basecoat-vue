@@ -1,6 +1,7 @@
 <template>
   <label class="label gap-3">
-    <input :id="inputId" type="checkbox" :class="inputClass" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)" />
+    <input :id="inputId" type="checkbox" :class="inputClass" :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)" />
     {{ label }}
   </label>
 </template>

@@ -1,8 +1,9 @@
 {
-  "name": "crm-vue-tailwind",
+  "name": "ui-basecoat",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.5.0",
   "type": "module",
+  "main": "src/index.js",
   "engines": {
     "node": "^20.19.0 || >=22.12.0"
   },
@@ -13,7 +14,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.12",
-    "basecoat-css": "^0.3.2",
+    "basecoat-css": "^0.3.6",
     "vue": "^3.5.18",
     "vue-router": "^4.5.1"
   },

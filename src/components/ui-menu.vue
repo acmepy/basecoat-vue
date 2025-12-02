@@ -6,7 +6,7 @@
       <ul v-if="!g.group && !!g.items">
         <li v-for="i in g.items">
           <a :href="i.link">
-            <bcIcon :iconify="i.iconify" :svg="i.svg" /><span>{{ i.label }}</span>
+            <UiIcon :iconify="i.iconify" :svg="i.svg" /><span>{{ i.label }}</span>
           </a>
         </li>
       </ul>
@@ -14,17 +14,19 @@
       <section v-if="!!g.group" class="accordion">
         <!--details class="group border-b last:border-b-0"-->
         <details class="group">
-          <summary class="w-full focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] transition-all outline-none rounded-md">
-            <h2 class="flex flex-1 items-start justify-between gap-4 pl-2 pt-1 pb-4 text-left text-sm font-medium hover:underline">
+          <summary
+            class="w-full focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] transition-all outline-none rounded-md">
+            <h2
+              class="flex flex-1 items-start justify-between gap-4 pl-2 pt-1 pb-4 text-left text-sm font-medium hover:underline">
               {{ g.group }}
-              <bcSvg name="accordion" />
+              <UiSvg name="accordion" />
             </h2>
           </summary>
           <section class="pb-4">
             <ul>
               <li v-for="i in g.items">
                 <a :href="i.link">
-                  <bcIcon :iconify="i.iconify" /><span>{{ i.label }}</span>
+                  <UiIcon :iconify="i.iconify" /><span>{{ i.label }}</span>
                 </a>
               </li>
             </ul>
@@ -37,15 +39,15 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import bcIcon from './bc-icon.vue';
-import bcSvg from './bc-svg.vue';
+import UiIcon from './ui-icon.vue';
+import UiSvg from './ui-svg.vue';
 
 const props = defineProps({
   items: { type: Array, default: () => [] },
   debug: { type: Boolean, default: () => false },
 });
 
-if (props.debug) console.log('bc-menu', props.items);
+if (props.debug) console.log('ui-menu', props.items);
 
 const currentUrl = ref('');
 //const isActive = (link) => currentUrl.value.includes(link);

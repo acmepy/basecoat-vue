@@ -1,18 +1,16 @@
 <template>
-  <button
-    type="button"
-    aria-label="Toggle dark mode"
-    data-tooltip="Toggle dark mode"
-    data-side="bottom"
-    onclick="document.dispatchEvent(new CustomEvent('basecoat:theme'))"
-    class="btn-icon-outline size-8"
-  >
-    <span class="hidden dark:block"><bcIcon iconify="wi:day-sunny" /></span>
-    <span class="block dark:hidden"><bcIcon iconify="fa7-regular:moon" /></span>
+  <button type="button" aria-label="Toggle dark mode" data-tooltip="Toggle dark mode" data-side="bottom"
+    onclick="document.dispatchEvent(new CustomEvent('basecoat:theme'))" class="btn-icon-outline size-8">
+    <span class="hidden dark:block">
+      <UiIcon iconify="wi:day-sunny" />
+    </span>
+    <span class="block dark:hidden">
+      <UiIcon iconify="fa7-regular:moon" />
+    </span>
   </button>
 </template>
 <script setup>
-import bcIcon from './bc-icon.vue';
+import UiIcon from './ui-icon.vue';
 
 (() => {
   try {
@@ -20,13 +18,13 @@ import bcIcon from './bc-icon.vue';
     if (stored ? stored === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches) {
       document.documentElement.classList.add('dark');
     }
-  } catch (_) {}
+  } catch (_) { }
 
   const apply = (dark) => {
     document.documentElement.classList.toggle('dark', dark);
     try {
       localStorage.setItem('themeMode', dark ? 'dark' : 'light');
-    } catch (_) {}
+    } catch (_) { }
   };
 
   document.addEventListener('basecoat:theme', (event) => {

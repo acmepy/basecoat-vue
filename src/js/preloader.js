@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import BcLoading from '../components/bc-preloader.vue';
+import UiLoading from '../components/ui-preloader.vue';
 
 let instance;
 
@@ -7,7 +7,7 @@ function init() {
   if (!instance) {
     const container = document.createElement('div');
     document.body.appendChild(container);
-    const loadingApp = createApp(BcLoading);
+    const loadingApp = createApp(UiLoading);
     instance = loadingApp.mount(container);
   }
   return instance;
@@ -30,7 +30,7 @@ window.preloader = {
       if (!instance) {
         const container = document.createElement("div");
         document.body.appendChild(container);
-        const loadingApp = createApp(BcLoading);
+        const loadingApp = createApp(UiLoading);
         instance = loadingApp.mount(container);
       }
       return instance;

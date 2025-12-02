@@ -1,26 +1,29 @@
 <template>
-  <bcCard sectionClass="space-y-6">
+  <UiCard sectionClass="space-y-6">
     <header class="flex items-center gap-2">
       <img :src="avatar" :alt="name" class="w-10 h-10 rounded-full" />
       <div class="flex flex-col gap-1 mr-auto">
         <h3 class="text-sm font-medium leading-none">{{ name }}</h3>
         <p class="text-sm text-muted-foreground">{{ email }}</p>
       </div>
-      <bcButton iconify="material-symbols:add" buttonClass="btn-icon-outline rounded-full" iconStyle="font-size:40px; color:gray;" tooltip="New message" />
+      <UiButton iconify="material-symbols:add" buttonClass="btn-icon-outline rounded-full"
+        iconStyle="font-size:40px; color:gray;" tooltip="New message" />
     </header>
     <section class="space-y-4">
       <div v-for="m in messages" :class="messagesClass[m.type]">{{ m.text }}</div>
     </section>
     <footer class="flex items-center gap-2">
-      <input type="text" class="input w-full" id="input-message" placeholder="Type your message here..." v-model="message" @input="(value) => (sendDisabled = !!value)" />
-      <bcButton iconify="material-symbols:send-outline-rounded" buttonClass="btn-icon" iconClass="rotate-315" iconStyle="font-size:40px; color:gray;" tooltip="New message" :disabled="sendDisabled" />
+      <input type="text" class="input w-full" id="input-message" placeholder="Type your message here..."
+        v-model="message" @input="(value) => (sendDisabled = !!value)" />
+      <UiButton iconify="material-symbols:send-outline-rounded" buttonClass="btn-icon" iconClass="rotate-315"
+        iconStyle="font-size:40px; color:gray;" tooltip="New message" :disabled="sendDisabled" />
     </footer>
-  </bcCard>
+  </UiCard>
 </template>
 <script setup>
 import { ref } from 'vue';
-import bcButton from './bc-button.vue';
-import bcCard from './bc-card.vue';
+import UiButton from './ui-button.vue';
+import UiCard from './ui-card.vue';
 
 const props = defineProps({
   avatar: { type: String },
