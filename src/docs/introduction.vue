@@ -40,7 +40,8 @@
 			<h2 id="how-it-works"><a href="#how-it-works">How it works</a></h2>
 			<div class="prose">
 				<p>Add a single CSS file to your Tailwind setup. Use components by dropping in simple classes like
-					<code>btn</code>, <code>form</code>, or <code>card</code>.</p>
+					<code>btn</code>, <code>form</code>, or <code>card</code>.
+				</p>
 
 				<p>Some components (like modals or dropdowns) use a tiny bit of vanilla JavaScript. You can skip it if you don't
 					need interactivity.</p>
@@ -65,5 +66,5 @@
 		:items="[{ link: '#why', text: 'Why Basecoat?' }, { link: '#how-it-works', text: 'How it works' }, { link: '#how-can-i-help', text: 'How can I help?' }]" />
 </template>
 <script setup>
-import UiOnThisPage from '../components/ui-on-this-page.vue'
+import UiOnThisPage from '../components/ui/ui-on-this-page.vue'
 </script>

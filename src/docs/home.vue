@@ -1,16 +1,16 @@
 <script setup>
 import { ref, onMounted } from "vue";
 
-import UiSelect from "../components/ui-select.vue";
-import UiCard from "../components/ui-card.vue";
-import UiList from "../components/ui-list.vue";
-import UiInput from "../components/ui-input.vue";
-import UiRadio from "../components/ui-radio.vue";
-import UiButton from "../components/ui-button.vue";
-import UiDivider from "../components/ui-divider.vue";
-import UiPassword from "../components/ui-password.vue";
-import UiMessages from "../components/ui-messages.vue";
-import UiToolbar from "../components/ui-toolbar.vue";
+import UiSelect from "../components/ui/ui-select.vue";
+import UiCard from "../components/ui/ui-card.vue";
+import UiList from "../components/ui/ui-list.vue";
+import UiInput from "../components/ui/ui-input.vue";
+import UiRadio from "../components/ui/ui-radio.vue";
+import UiButton from "../components/ui/ui-button.vue";
+import UiDivider from "../components/ui/ui-divider.vue";
+import UiPassword from "../components/ui/ui-password.vue";
+import UiMessages from "../components/ui/ui-messages.vue";
+import UiToolbar from "../components/ui/ui-toolbar.vue";
 
 /*
   import { getCurrentInstance } from "vue";

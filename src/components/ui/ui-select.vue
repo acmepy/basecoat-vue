@@ -9,7 +9,7 @@
   </div>
 </template>
 <script setup>
-import { useUniqueId } from '../js/utils';
+import { useUniqueId } from './js/utils';
 
 defineProps({
   label: { type: String, default: '' },

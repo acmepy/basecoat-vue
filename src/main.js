@@ -3,7 +3,7 @@ import './css/style.css';
 import 'basecoat-css/all';
 import App from './App.vue';
 import router from './js/router';
-import './js/preloader.js';
+import './components/ui/js/preloader.js';
 //import preloader from "./js/preloader.js";
 
 createApp(App)

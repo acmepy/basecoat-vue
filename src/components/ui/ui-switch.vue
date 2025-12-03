@@ -4,7 +4,7 @@
 
 <script setup>
 import { computed } from 'vue';
-import { useUniqueId } from '../js/utils';
+import { useUniqueId } from './js/utils';
 
 const props = defineProps({
   inputId: { type: String, default: () => useUniqueId() },

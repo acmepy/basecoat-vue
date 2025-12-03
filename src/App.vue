@@ -1,6 +1,6 @@
 <script setup>
-import UiSidebar from './components/ui-sidebar.vue';
-import UiMain from './components/ui-main.vue';
+import UiSidebar from './components/ui/ui-sidebar.vue';
+import UiMain from './components/ui/ui-main.vue';
 
 const menu = {
   header: {

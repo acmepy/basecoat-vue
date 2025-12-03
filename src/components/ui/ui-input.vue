@@ -1,11 +1,12 @@
 <template>
   <div :class="containerClass">
     <label v-if="!!label" :for="id">{{ label }}</label>
-    <input :type="type" :id="id" :placeholder="placeholder" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)" />
+    <input :type="type" :id="id" :placeholder="placeholder" :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)" />
   </div>
 </template>
 <script setup>
-import { useUniqueId } from '../js/utils';
+import { useUniqueId } from './js/utils';
 
 defineProps({
   label: String,

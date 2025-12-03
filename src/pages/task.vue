@@ -1772,5 +1772,5 @@
   </div>
 </template>
 <script setup>
-import UiPopover from '../components/ui-popover.vue';
+import UiPopover from '../components/ui/ui-popover.vue';
 </script>

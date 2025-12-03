@@ -40,7 +40,7 @@
   </div>
 </template>
 <script setup>
-import { useUniqueId } from '../js/utils';
+import { useUniqueId } from './js/utils';
 import UiIcon from './ui-icon.vue';
 import UiMenu from './ui-menu.vue';
 const uniqueId = useUniqueId('popover');

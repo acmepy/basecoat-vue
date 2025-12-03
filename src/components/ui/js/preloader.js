@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import UiLoading from '../components/ui-preloader.vue';
+import UiLoading from '../ui-preloader.vue';
 
 let instance;
 

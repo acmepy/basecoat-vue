@@ -1,6 +1,6 @@
 <script setup>
 import { ref, computed } from "vue";
-import UiIcon from "../components/ui-icon.vue";
+import UiIcon from "../components/ui/ui-icon.vue";
 
 // Datos de ejemplo
 const rows = ref([
