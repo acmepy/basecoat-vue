@@ -5,7 +5,8 @@
       <!-- menu sin colapsar -->
       <ul v-if="!g.group && !!g.items">
         <li v-for="i in g.items">
-          <a :href="i.link">
+          <a :href="i.link" hx-select="#content" hx-target="#content" hx-swap="outerHTML" hx-boost="true"
+            :data-new-link="i.new">
             <UiIcon :iconify="i.iconify" :svg="i.svg" /><span>{{ i.label }}</span>
           </a>
         </li>

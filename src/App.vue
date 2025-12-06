@@ -49,6 +49,7 @@ const menu = {
         { label: 'Dropdown Menu', link: 'https://basecoatui.com/components/dropdown-menu' },
         { label: 'Form', link: 'https://basecoatui.com/components/form' },
         { label: 'Input', link: 'https://basecoatui.com/components/input' },
+        { label: 'Input Group', link: 'https://basecoatui.com/components/input', new: true },
         { label: 'Label', link: 'https://basecoatui.com/components/label' },
         { label: 'Pagination', link: 'https://basecoatui.com/components/pagination' },
         { label: 'Popover', link: 'https://basecoatui.com/components/popover' },

@@ -14,7 +14,8 @@
           </div>
         </a>
       </header>
-      <section class="scrollbar">
+      <section
+        class="scrollbar [&amp;_[data-new-link]::after]:content-[&#39;New&#39;] [&amp;_[data-new-link]::after]:ml-auto [&amp;_[data-new-link]::after]:text-xs [&amp;_[data-new-link]::after]:font-medium [&amp;_[data-new-link]::after]:bg-sidebar-primary [&amp;_[data-new-link]::after]:text-sidebar-primary-foreground [&amp;_[data-new-link]::after]:px-2 [&amp;_[data-new-link]::after]:py-0.5 [&amp;_[data-new-link]::after]:rounded-md">
         <UiMenu :items="items" />
       </section>
       <footer>
